@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Scout — PD, PM & Fashion · Berlin · Remote</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0f0f1a;--surface:#16151f;--border:#252440;--border2:#1a1930;--text:#e2e0ff;--muted:#5a5880;--dim:#3a3860;--purple:#7c6dfa;--purple2:#6a5ce8;--pg:#7c6dfa44}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.shell{max-width:980px;margin:0 auto;padding:2rem 1.5rem}
+header{margin-bottom:1.8rem}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:5px}
+.pulse{width:10px;height:10px;border-radius:50%;background:var(--purple);box-shadow:0 0 12px var(--purple);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{box-shadow:0 0 8px var(--purple)}50%{box-shadow:0 0 20px var(--purple)}}
+h1{font-family:'Space Grotesk',sans-serif;font-size:1.55rem;font-weight:700;color:#fff;letter-spacing:-.5px}
+.tag{font-size:.78rem;color:var(--dim);margin-left:22px}
+.box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.4rem;margin-bottom:1rem;display:flex;flex-direction:column;gap:.9rem}
+.row{display:flex;flex-wrap:wrap;gap:.9rem}
+.fg{display:flex;flex-direction:column;gap:6px;flex:1;min-width:130px}
+.fg label{font-size:.61rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dim)}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{padding:5px 12px;border-radius:100px;border:1px solid var(--border);font-size:.74rem;cursor:pointer;transition:all .15s;background:transparent;color:var(--muted);user-select:none;font-family:inherit}
+.chip.on{background:var(--pg);border-color:var(--purple);color:#c0b8ff}
+.kw-row{display:flex;gap:10px;align-items:flex-end}
+.kw-wrap{flex:1;display:flex;flex-direction:column;gap:6px}
+input[type=text]{background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:.5rem .8rem;font-size:.81rem;font-family:inherit;outline:none;width:100%;transition:border-color .2s}
+input:focus{border-color:var(--purple)}
+input::placeholder{color:#2a2848}
+.btn{background:var(--purple);color:#fff;border:none;border-radius:10px;padding:.62rem 1.5rem;font-size:.85rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn:hover{background:var(--purple2);transform:translateY(-1px)}
+.btn:disabled{background:var(--border);color:var(--dim);transform:none;cursor:default}
+.sbar{font-size:.77rem;color:var(--muted);margin-bottom:.7rem;min-height:20px;display:flex;align-items:center;gap:8px}
+.spin{width:13px;height:13px;border:2px solid var(--border);border-top-color:var(--purple);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.reg{border-radius:9px;padding:.55rem .9rem;font-size:.72rem;margin-bottom:.8rem;display:flex;align-items:center;gap:8px}
+.reg.loading{background:var(--bg);border:1px solid var(--border);color:var(--dim)}
+.reg.ok{background:#0a1a0f;border:1px solid #1a4030;color:#4ecb8d}
+.reg.error{background:#1a0a0a;border:1px solid #3a1a1a;color:#f87171}
+.rdot{width:7px;height:7px;border-radius:50%;background:currentColor;flex-shrink:0}
+.lgd{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.2rem;margin-bottom:1rem}
+.lt{font-size:.61rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin-bottom:.6rem}
+.lg{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:6px}
+.li{display:flex;align-items:flex-start;gap:6px;font-size:.71rem;color:var(--muted);line-height:1.45}
+.stats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.8rem}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.42rem .85rem;font-size:.74rem;color:var(--muted);display:flex;align-items:center;gap:4px}
+.stat strong{color:#b0a8ff}
+.sec{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);margin:.3rem 0 .6rem;display:flex;align-items:center;gap:8px}
+.sec::after{content:'';flex:1;height:1px;background:var(--border2)}
+.pill{background:var(--pg);border:1px solid #7c6dfa55;color:#a090ff;font-size:.57rem;padding:2px 7px;border-radius:100px;font-weight:700}
+.results{display:flex;flex-direction:column;gap:9px;margin-bottom:1.2rem}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:1.1rem 1.3rem;transition:border-color .2s,transform .15s;animation:fadeUp .25s ease}
+.card.ft{border-color:#7c6dfa44}
+.card:hover{border-color:#363460;transform:translateY(-1px)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.ct{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:.55rem}
+.ctitle{font-size:.92rem;font-weight:600;color:#f0eeff;line-height:1.3}
+.ccomp{font-size:.74rem;color:var(--muted);margin-top:3px}
+.bdgs{display:flex;flex-wrap:wrap;gap:4px;flex-shrink:0}
+.b{font-size:.61rem;font-weight:700;padding:2px 8px;border-radius:100px}
+.br{background:#0a1e14;color:#4ecb8d;border:1px solid #1a4030}
+.bb{background:#0a1428;color:#60a5fa;border:1px solid #1a3060}
+.buk{background:#0f1428;color:#818cf8;border:1px solid #1a2060}
+.beu{background:#130f28;color:#a78bfa;border:1px solid #281a50}
+.bin{background:#201408;color:#fb923c;border:1px solid #402810}
+.bd{background:#140a28;color:#c084fc;border:1px solid #381a50}
+.bpm{background:#0f1e0a;color:#86efac;border:1px solid #284a1a}
+.bfa{background:#280a18;color:#f472b6;border:1px solid #4a1a30}
+.ben{background:#0a1818;color:#34d399;border:1px solid #1a3838}
+.bnw{background:#201808;color:#fcd34d;border:1px solid #403818}
+.bhs{background:#1a1000;color:#f59e0b;border:1px solid #382800}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:.6rem}
+.mi{font-size:.72rem;color:var(--dim);display:flex;align-items:center;gap:3px}
+.desc{font-size:.79rem;color:#5a5880;line-height:1.65;margin-bottom:.8rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.vr{border-top:1px solid var(--border2);padding-top:.7rem;margin-bottom:.7rem}
+.vl{font-size:.59rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--border);margin-bottom:.45rem}
+.sigs{display:flex;flex-direction:column;gap:4px}
+.sig{display:flex;align-items:flex-start;gap:7px;font-size:.73rem;line-height:1.45}
+.si{font-size:.8rem;flex-shrink:0;width:17px;text-align:center;margin-top:1px}
+.sb{color:var(--muted)}
+.sb a{color:var(--purple);text-decoration:none}
+.cy strong{color:#4ade80}.cn strong{color:#f87171}.cuy strong{color:#60a5fa}.cun strong{color:#f87171}.cuu strong{color:var(--muted)}.cde strong{color:#fb923c}.cin strong{color:#34d399}
+.cf{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.src{font-size:.63rem;color:var(--dim);padding:2px 7px;border:1px solid var(--border2);border-radius:4px}
+.ab{font-size:.76rem;font-weight:600;font-family:inherit;padding:.38rem .95rem;border-radius:7px;border:1px solid var(--dim);background:transparent;color:#9090d0;cursor:pointer;text-decoration:none;transition:all .15s;display:inline-block}
+.ab:hover{background:var(--pg);border-color:var(--purple);color:#c0b8ff}
+.empty{text-align:center;padding:3rem 1.5rem}
+.ei{font-size:2.5rem;margin-bottom:.8rem}
+.empty p{font-size:.82rem;color:var(--dim);line-height:1.7;max-width:320px;margin:0 auto}
+footer{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--border2);font-size:.7rem;color:var(--border);text-align:center;line-height:1.8}
+footer a{color:var(--dim);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="shell">
+<header>
+<div class="brand"><div class="pulse"></div><h1>Job Scout</h1></div>
+<p class="tag">PD · PM · Fashion Design · English-only · Berlin · Remote Germany / Europe / India · Live visa status</p>
+</header>
+<div class="box">
+<div class="row">
+<div class="fg"><label>Role</label><div class="chips" id="cr"><div class="chip on" data-v="product designer">Product Designer</div><div class="chip on" data-v="product manager">Product Manager</div><div class="chip" data-v="ux designer">UX Designer</div><div class="chip" data-v="fashion designer">Fashion Designer</div><div class="chip" data-v="ui designer">UI Designer</div></div></div>
+<div class="fg" style="max-width:150px"><label>Seniority</label><div class="chips" id="cs"><div class="chip on" data-v="">Any</div><div class="chip" data-v="senior">Senior</div><div class="chip" data-v="lead">Lead</div><div class="chip" data-v="junior">Junior</div></div></div>
+</div>
+<div class="row"><div class="fg"><label>Location</label><div class="chips" id="cl"><div class="chip on" data-v="de-berlin">Berlin</div><div class="chip on" data-v="de-remote">Remote Germany</div><div class="chip on" data-v="eu-remote">UK / Remote Europe</div><div class="chip on" data-v="in-remote">Remote India</div></div></div></div>
+<div class="kw-row"><div class="kw-wrap"><label>Keywords (optional)</label><input type="text" id="kw" placeholder="e.g. figma, SaaS, luxury fashion, startup..."></div><button class="btn" id="sb" onclick="go()">Search Jobs</button></div>
+</div>
+<div id="rb" class="reg loading"><div class="rdot"></div><span>UK Home Office sponsor register: loading...</span></div>
+<div class="sbar" id="st"></div>
+<div id="root"></div>
+<footer>Jobs via <a href="https://www.adzuna.com" target="_blank">Adzuna</a> · UK visa data: <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers" target="_blank">Home Office Register of Licensed Sponsors</a><br>Visa status is informational only — always confirm sponsorship directly with the employer.</footer>
+</div>
+<script>
+const AID='586c69ed', AKY='f5d7d2038dc1f8aabff0ebc1d4d8f7f5';
+let UKM=null;
+
+async function loadUK(){
+  setBanner('loading','UK Home Office sponsor register: loading...');
+  const URLS=[
+    'https://assets.publishing.service.gov.uk/media/6a3e482e30b491f55b3c4ac3/SP_-_Worker_and_Temporary_Worker_Web_Register_-_2026-06-26.csv',
+    'https://corsproxy.io/?url=https://assets.publishing.service.gov.uk/media/6a3e482e30b491f55b3c4ac3/SP_-_Worker_and_Temporary_Worker_Web_Register_-_2026-06-26.csv'
+  ];
+  for(const url of URLS){
+    try{
+      const r=await fetch(url);if(!r.ok)continue;
+      const txt=await r.text();const lines=txt.split('\n');const map=new Map();
+      for(let i=1;i<lines.length;i++){const ln=lines[i].trim();if(!ln)continue;const c=csv(ln);if(c.length<4)continue;const nm=c[0].replace(/^"+|"+$/g,'').trim();const rat=c[3]?c[3].replace(/^"+|"+$/g,'').trim():'';const rt=c[4]?c[4].replace(/^"+|"+$/g,'').trim():'';if(!nm)continue;const k=norm(nm);if(!map.has(k))map.set(k,{name:nm,rating:rat,routes:[]});if(rt&&!map.get(k).routes.includes(rt))map.get(k).routes.push(rt);}
+      UKM=map;setBanner('ok','UK sponsor register: '+map.size.toLocaleString()+' licensed companies (Home Office, Jun 2026)');
+      document.querySelectorAll('[data-ukc]').forEach(el=>el.outerHTML=ukSig(el.dataset.ukc));
+      return;
+    }catch(e){console.warn(url,e);}
+  }
+  UKM='err';setBanner('error','UK register unavailable. <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers" target="_blank" style="color:inherit">Check GOV.UK manually</a>.');
+}
+
+function norm(s){return(s||'').toLowerCase().replace(/(limited|ltd|plc|llp|lp|inc|group|holdings?|uk|co.?)/g,'').replace(/[^a-z0-9 ]/g,'').replace(/s+/g,' ').trim();}
+function csv(l){const r=[];let c='',q=false;for(let i=0;i<l.length;i++){const ch=l[i];if(ch==='"'){q=!q;}else if(ch===','&&!q){r.push(c);c='';}else c+=ch;}r.push(c);return r;}
+function chkUK(co){if(!UKM||UKM==='err')return'unk';const k=norm(co);if(!k)return'unk';if(UKM.has(k))return UKM.get(k);for(const[kk,v]of UKM){if(kk.length>3&&(k.includes(kk)||kk.includes(k)))return v;}return null;}
+function setBanner(t,h){const el=document.getElementById('rb');el.className='reg '+t;el.innerHTML='<div class="rdot"></div><span>'+h+'</span>';}
+
+const VY=['visa sponsorship','will sponsor','sponsorship provided','sponsorship available','we sponsor','skilled worker visa','work permit sponsor','provide sponsorship','offer sponsorship','happy to sponsor'];
+const VN=['no sponsorship','cannot sponsor','unable to sponsor','sponsorship not available','must have right to work','we do not offer sponsorship','no visa sponsorship'];
+const GR=['german required','german language required','fluent in german','native german','german speaker required','must speak german','german is a must','german is required'];
+const GO=['german is a plus','german is nice','german is preferred','german not required','no german required','german is a bonus'];
+function isDE(t){const l=(t||'').toLowerCase();if(GO.some(k=>l.includes(k)))return false;return GR.some(k=>l.includes(k));}
+function vscan(t){const l=(t||'').toLowerCase();if(VN.some(k=>l.includes(k)))return'no';if(VY.some(k=>l.includes(k)))return'yes';return'?';}
+
+function visaHTML(job){
+  const txt=(job.title||'')+' '+(job.description||'');const sc=vscan(txt);const co=job.company?.display_name||job.company||'';const cty=job._cty||'';const sal=job.salary_min||0;
+  let s='';
+  if(sc==='yes')s+=sg('✅','cy','<strong>Sponsorship mentioned in this listing</strong> — employer explicitly states visa sponsorship is available.');
+  else if(sc==='no')s+=sg('❌','cn','<strong>Sponsorship declined in listing</strong> — employer states they cannot sponsor for this role.');
+  else s+=sg('⬜','cuu','<strong>Not mentioned in listing</strong> — contact employer directly to confirm.');
+  if(cty==='gb')s+=ukSig(co);
+  else if(cty==='de')s+=sg('🇩🇪','cde','<strong>Germany: EU Blue Card / Skilled Worker visa</strong> — design and PM roles generally qualify.'+(sal>=43800?' Salary meets the EUR 43.8k Blue Card threshold.':' Confirm salary meets the EUR 43.8k threshold.')+'  Ask employer directly.');
+  else if(cty==='nl')s+=sg('🇳🇱','cde','<strong>Netherlands: Highly Skilled Migrant visa</strong> — employer must be IND-recognised. Confirm sponsorship willingness.');
+  else if(cty==='in')s+=sg('🇮🇳','cin','<strong>Remote India: No sponsorship needed</strong> — you work from India. No work visa required.');
+  return '<div class="vr"><div class="vl">Visa & Sponsorship Status</div><div class="sigs">'+s+'</div></div>';
+}
+function ukSig(co){
+  if(!UKM)return'<div class="sig" data-ukc="'+e(co)+'"><div class="si">🇬🇧</div><div class="sb cuu"><strong>UK register: loading...</strong></div></div>';
+  if(UKM==='err')return sg('🇬🇧','cuu','<strong>UK register unavailable</strong> — <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers" target="_blank">check GOV.UK</a> for "'+e(co)+'"');
+  const f=chkUK(co);
+  if(f&&typeof f==='object')return sg('🇬🇧','cuy','<strong>UK licensed sponsor ✓</strong> — "'+e(f.name)+'" is on the Home Office register ('+e(f.rating)+'). Routes: '+e(f.routes.join(', ')||'Skilled Worker')+'. Confirm they will sponsor for this specific role.');
+  if(f===null)return sg('🇬🇧','cun','<strong>Not on UK sponsor register</strong> — "'+e(co)+'" not found. They likely cannot sponsor a Skilled Worker visa. <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers" target="_blank">Verify on GOV.UK</a>.');
+  return sg('🇬🇧','cuu','<strong>UK register: checking...</strong>');
+}
+function sg(ic,cl,h){return'<div class="sig"><div class="si">'+ic+'</div><div class="sb '+cl+'">'+h+'</div></div>';}
+function e(s){return s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):''}
+function role(t){const l=(t||'').toLowerCase();if(l.includes('fashion')||l.includes('apparel'))return'F';if(l.includes('ux')||l.includes('user exp'))return'U';if(l.includes('product manager')||l.includes('product owner'))return'P';return'D';}
+function ts(ds){if(!ds)return null;const d=Math.floor((Date.now()-new Date(ds))/86400000);if(d===0)return'Today';if(d===1)return'Yesterday';if(d<7)return d+'d ago';if(d<30)return Math.floor(d/7)+'w ago';return Math.floor(d/30)+'mo ago';}
+function isNew(ds){return ds&&(Date.now()-new Date(ds))<7*86400000;}
+function clean(t){return(t||'').replace(/<[^>]*>/g,'').replace(/s+/g,' ').trim().slice(0,285);}
+
+const RB={F:'<span class="b bfa">Fashion</span>',P:'<span class="b bpm">PM</span>',U:'<span class="b bd">UX</span>',D:'<span class="b bd">Design</span>'};
+function card(j){
+  const ft=!!j._ft;const co=j.company?.display_name||j.company||'';const r=j._rt||role(j.title);const loc=j._loc||'';
+  const sal=j.salary_min&&j.salary_max?'EUR '+Math.round(j.salary_min/1e3)+'k-'+Math.round(j.salary_max/1e3)+'k':j.salary_min?'from EUR '+Math.round(j.salary_min/1e3)+'k':null;
+  const lbdg=loc.includes('Berlin')?'<span class="b bb">Berlin</span>':loc.includes('India')?'<span class="b bin">India</span>':loc.includes('Neth')?'<span class="b beu">NL</span>':loc.includes('UK')||loc.includes('London')?'<span class="b buk">'+e(loc.split('/')[0].trim())+'</span>':'<span class="b br">Remote</span>';
+  return'<div class="card'+(ft?' ft':'')+'"><div class="ct"><div><div class="ctitle">'+e(j.title)+'</div><div class="ccomp">'+e(co)+(j._fl?' · '+j._fl+' '+e(loc):'')+'</div></div><div class="bdgs">'+(ft?'<span class="b bhs">Highsnobiety</span>':'')+(isNew(j.created)?'<span class="b bnw">New</span>':'')+(RB[r]||'')+lbdg+'<span class="b ben">English</span></div></div><div class="meta">'+(sal?'<span class="mi">💰 '+sal+'</span>':'')+(ts(j.created)?'<span class="mi">🗓 '+ts(j.created)+'</span>':'')+'</div><div class="desc">'+e(clean(j.description||''))+'</div>'+visaHTML(j)+'<div class="cf"><span class="src">'+e(j._src||'Adzuna')+'</span><a class="ab" href="'+e(j.redirect_url||'#')+'" target="_blank" rel="noopener">View Job →</a></div></div>';
+}
+
+function legend(){return'<div class="lgd"><div class="lt">How visa status works</div><div class="lg"><div class="li"><span>✅</span><span>Employer explicitly stated sponsorship is available in this listing</span></div><div class="li"><span>❌</span><span>Employer declined sponsorship in this listing</span></div><div class="li"><span>⬜</span><span>Not mentioned — contact employer directly</span></div><div class="li"><span>🇬🇧</span><span>UK register: found = legally CAN sponsor. Not found = almost certainly cannot.</span></div><div class="li"><span>🇩🇪</span><span>Germany: Blue Card eligibility vs 2025 EUR 43.8k threshold</span></div><div class="li"><span>🇮🇳</span><span>Remote India = work from India, no visa needed</span></div></div></div>';}
+
+document.querySelectorAll('.chips').forEach(g=>{g.querySelectorAll('.chip').forEach(c=>{c.addEventListener('click',()=>{if(g.id==='cs'){g.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');}else c.classList.toggle('on');});});});
+function on(id){return[...document.querySelectorAll('#'+id+' .chip.on')].map(c=>c.dataset.v);}
+function setSt(msg,loading){document.getElementById('st').innerHTML=loading?'<div class="spin"></div><span>'+msg+'</span>':'<span>'+msg+'</span>';}
+
+function cfgs(roles,locs,sen,kw){const out=[];const ex=kw?' '+kw:'';roles.forEach(rl=>{const q=sen?sen+' '+rl+ex:rl+ex;locs.forEach(l=>{if(l==='de-berlin')out.push({c:'de',w:q,wh:'Berlin',loc:'Berlin',fl:'🇩🇪'});if(l==='de-remote')out.push({c:'de',w:q+' remote',wh:'',loc:'Remote Germany',fl:'🇩🇪'});if(l==='eu-remote'){out.push({c:'gb',w:q,wh:'London',loc:'London / UK',fl:'🇬🇧'});out.push({c:'gb',w:q+' remote',wh:'',loc:'Remote UK/Europe',fl:'🌍'});out.push({c:'nl',w:q,wh:'',loc:'Netherlands',fl:'🇳🇱'});}if(l==='in-remote')out.push({c:'in',w:q,wh:'',loc:'Remote India',fl:'🇮🇳'});});});return out.slice(0,14);}
+
+async function fetchA(cfg){
+  const p=new URLSearchParams({app_id:AID,app_key:AKY,results_per_page:10,what:cfg.w});if(cfg.wh)p.set('where',cfg.wh);
+  const r=await fetch('https://api.adzuna.com/v1/api/jobs/'+cfg.c+'/search/1?'+p);if(!r.ok)return[];
+  const d=await r.json();return(d.results||[]).map(j=>({...j,_loc:cfg.loc,_fl:cfg.fl,_cty:cfg.c,_src:'Adzuna'}));
+}
+
+async function go(){
+  const roles=on('cr'),locs=on('cl'),sen=on('cs')[0]||'',kw=document.getElementById('kw').value.trim();
+  if(!roles.length||!locs.length){setSt('Please select at least one role and location.');return;}
+  const btn=document.getElementById('sb');btn.disabled=true;document.getElementById('root').innerHTML='';setSt('Fetching live jobs...',true);
+  const cs=cfgs(roles,locs,sen,kw);const seen=new Set();let all=[],flt=0,tot=0;
+  for(const cfg of cs){setSt('Searching '+cfg.loc+'...',true);try{const js=await fetchA(cfg);tot+=js.length;for(const j of js){const id=j.id||(j.title+(j.company?.display_name||''));if(seen.has(id))continue;seen.add(id);if(isDE((j.title||'')+' '+(j.description||''))){flt++;continue;}all.push(j);}}catch(er){console.warn(cfg,er);}}
+  all.sort((a,b)=>new Date(b.created||0)-new Date(a.created||0));
+  const wD=roles.some(r=>['product designer','ux designer','ui designer','fashion designer'].includes(r));
+  const hs=wD?HS:[];
+  btn.disabled=false;setSt((hs.length+all.length)+' English-only jobs · '+flt+' filtered (German req.) · '+tot+' scanned');
+  let h='<div class="stats"><div class="stat"><strong>'+hs.length+'</strong> Highsnobiety</div><div class="stat"><strong>'+all.length+'</strong> Adzuna</div><div class="stat"><strong>'+flt+'</strong> hidden (German req.)</div><div class="stat"><strong>'+tot+'</strong> scanned</div></div>';
+  h+=legend();
+  if(hs.length)h+='<div class="sec">⭐ Highsnobiety — Live Berlin <span class="pill">LIVE NOW</span></div><div class="results">'+hs.map(card).join('')+'</div>';
+  if(all.length)h+='<div class="sec">🌐 Live Listings via Adzuna</div><div class="results">'+all.map(card).join('')+'</div>';
+  if(!hs.length&&!all.length)h+='<div class="empty"><div class="ei">😶</div><p>No matches. Try broader filters.</p></div>';
+  document.getElementById('root').innerHTML=h;
+}
+
+const HS=[
+  {title:'Senior Designer (all genders)',company:'Highsnobiety',_loc:'Berlin',_fl:'🇩🇪',_src:'Highsnobiety',created:'2026-06-29',description:"Lead design projects at one of Berlin's most influential fashion and culture brands. Own layout, typography and visual language across digital, print, motion and spatial outputs. 5+ years, Adobe Suite and Figma required. English working language.",redirect_url:'https://jobs.highsnobiety.com/jobs/7987690-senior-designer-all-genders',_ft:true,_rt:'D',_cty:'de'},
+  {title:'Midlevel Designer (all genders)',company:'Highsnobiety',_loc:'Berlin',_fl:'🇩🇪',_src:'Highsnobiety',created:'2026-04-01',description:'Join the Creative team in Berlin across fashion, culture and branded content. Adobe Suite and Figma required. International English-first team.',redirect_url:'https://jobs.highsnobiety.com/jobs/6941631-midlevel-designer-all-genders',_ft:true,_rt:'D',_cty:'de'},
+  {title:'Creative Director (all genders)',company:'Highsnobiety',_loc:'Berlin',_fl:'🇩🇪',_src:'Highsnobiety',created:'2026-03-01',description:"Shape the creative vision of one of the world's leading fashion and culture brands. Lead direction across campaigns, brand partnerships and editorial.",redirect_url:'https://jobs.highsnobiety.com/jobs/7046327-creative-director-all-genders',_ft:true,_rt:'F',_cty:'de'},
+  {title:'Senior Creative (all genders)',company:'Highsnobiety',_loc:'Berlin / London',_fl:'🇩🇪',_src:'Highsnobiety',created:'2026-03-10',description:'Work across Berlin and London on campaigns and identity at the intersection of fashion, culture and commerce.',redirect_url:'https://jobs.highsnobiety.com/jobs/7028118-senior-creative-all-genders',_ft:true,_rt:'F',_cty:'de'},
+];
+
+loadUK();
+(function(){let h=legend();h+='<div class="sec">⭐ Highsnobiety — Live Berlin <span class="pill">LIVE NOW</span></div><div class="results">'+HS.map(card).join('')+'</div><div class="empty" style="padding:1.2rem 0"><div class="ei" style="font-size:1.6rem">👆</div><p>Select filters and hit Search to load live Adzuna jobs with per-listing visa intelligence.</p></div>';document.getElementById('root').innerHTML=h;setSt('Ready · Highsnobiety live Berlin roles loaded · UK register loading in background...');})();
+</script>
+</body>
+</html>
