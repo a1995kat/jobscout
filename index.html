@@ -3,152 +3,549 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Job Scout — PD, PM & Fashion · Berlin · Remote</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<title>JobScout — Find work worth applying to</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+:root{
+  --bg:#F7F5EF;--surface:#FFFFFF;--surface-alt:#EEECE5;
+  --ink:#171717;--ink-2:#686868;--border:#D9D6CE;
+  --lime:#C7F36B;--blue:#3559FF;--coral:#FF705C;
+  --success:#278A55;--warning:#C88700;--error:#D94B4B;
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:24px;--r-pill:999px;
+  --sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:24px;--sp-6:32px;--sp-7:48px;--sp-8:64px;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0f0f1a;--surface:#16151f;--border:#252440;--border2:#1a1930;--text:#e2e0ff;--muted:#5a5880;--dim:#3a3860;--purple:#7c6dfa;--purple2:#6a5ce8;--pg:#7c6dfa44}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-.shell{max-width:980px;margin:0 auto;padding:2rem 1.5rem}
-header{margin-bottom:1.8rem}
-.brand{display:flex;align-items:center;gap:12px;margin-bottom:5px}
-.pulse{width:10px;height:10px;border-radius:50%;background:var(--purple);box-shadow:0 0 12px var(--purple);animation:pulse 2s infinite;flex-shrink:0}
-@keyframes pulse{0%,100%{box-shadow:0 0 8px var(--purple)}50%{box-shadow:0 0 20px var(--purple)}}
-h1{font-family:'Space Grotesk',sans-serif;font-size:1.55rem;font-weight:700;color:#fff;letter-spacing:-.5px}
-.tag{font-size:.78rem;color:var(--dim);margin-left:22px}
-.sources-note{font-size:.7rem;color:#3a3860;margin-left:22px;margin-top:3px}
-.box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.4rem;margin-bottom:1rem;display:flex;flex-direction:column;gap:.9rem}
-.row{display:flex;flex-wrap:wrap;gap:.9rem}
-.fg{display:flex;flex-direction:column;gap:6px;flex:1;min-width:130px}
-.fg label{font-size:.61rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dim)}
-.chips{display:flex;flex-wrap:wrap;gap:5px}
-.chip{padding:5px 12px;border-radius:100px;border:1px solid var(--border);font-size:.74rem;cursor:pointer;transition:all .15s;background:transparent;color:var(--muted);user-select:none;font-family:inherit}
-.chip.on{background:var(--pg);border-color:var(--purple);color:#c0b8ff}
-.chip:hover:not(.on){border-color:#363460;color:#9090b0}
-.kw-row{display:flex;gap:10px;align-items:flex-end}
-.kw-wrap{flex:1;display:flex;flex-direction:column;gap:6px}
-input[type=text]{background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:.5rem .8rem;font-size:.81rem;font-family:inherit;outline:none;width:100%;transition:border-color .2s}
-input:focus{border-color:var(--purple)}
-input::placeholder{color:#2a2848}
-.btn{background:var(--purple);color:#fff;border:none;border-radius:10px;padding:.62rem 1.5rem;font-size:.85rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s;white-space:nowrap}
-.btn:hover{background:var(--purple2);transform:translateY(-1px)}
-.btn:disabled{background:var(--border);color:var(--dim);transform:none;cursor:default}
-.sbar{font-size:.77rem;color:var(--muted);margin-bottom:.7rem;min-height:20px;display:flex;align-items:center;gap:8px}
-.spin{width:13px;height:13px;border:2px solid var(--border);border-top-color:var(--purple);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
-@keyframes spin{to{transform:rotate(360deg)}}
-.reg{border-radius:9px;padding:.55rem .9rem;font-size:.72rem;margin-bottom:.8rem;display:flex;align-items:center;gap:8px}
-.reg.loading{background:var(--bg);border:1px solid var(--border);color:var(--dim)}
-.reg.ok{background:#0a1a0f;border:1px solid #1a4030;color:#4ecb8d}
-.reg.error{background:#1a0a0a;border:1px solid #3a1a1a;color:#f87171}
-.rdot{width:7px;height:7px;border-radius:50%;background:currentColor;flex-shrink:0}
-.lgd{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.2rem;margin-bottom:1rem}
-.lt{font-size:.61rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin-bottom:.6rem}
-.lg{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:6px}
-.li{display:flex;align-items:flex-start;gap:6px;font-size:.71rem;color:var(--muted);line-height:1.45}
-.stats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.8rem}
-.stat{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.42rem .85rem;font-size:.74rem;color:var(--muted);display:flex;align-items:center;gap:4px}
-.stat strong{color:#b0a8ff}
-.sec{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);margin:.3rem 0 .6rem;display:flex;align-items:center;gap:8px}
-.sec::after{content:'';flex:1;height:1px;background:var(--border2)}
-.pill{background:var(--pg);border:1px solid #7c6dfa55;color:#a090ff;font-size:.57rem;padding:2px 7px;border-radius:100px;font-weight:700}
-.results{display:flex;flex-direction:column;gap:9px;margin-bottom:1.2rem}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:1.1rem 1.3rem;transition:border-color .2s,transform .15s;animation:fadeUp .25s ease}
-.card.ft{border-color:#7c6dfa44}
-.card:hover{border-color:#363460;transform:translateY(-1px)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-.ct{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:.55rem}
-.ctitle{font-size:.92rem;font-weight:600;color:#f0eeff;line-height:1.3}
-.ccomp{font-size:.74rem;color:var(--muted);margin-top:3px}
-.bdgs{display:flex;flex-wrap:wrap;gap:4px;flex-shrink:0}
-.b{font-size:.61rem;font-weight:700;padding:2px 8px;border-radius:100px}
-.br{background:#0a1e14;color:#4ecb8d;border:1px solid #1a4030}
-.bb{background:#0a1428;color:#60a5fa;border:1px solid #1a3060}
-.buk{background:#0f1428;color:#818cf8;border:1px solid #1a2060}
-.beu{background:#130f28;color:#a78bfa;border:1px solid #281a50}
-.bin{background:#201408;color:#fb923c;border:1px solid #402810}
-.bd{background:#140a28;color:#c084fc;border:1px solid #381a50}
-.bpm{background:#0f1e0a;color:#86efac;border:1px solid #284a1a}
-.bfa{background:#280a18;color:#f472b6;border:1px solid #4a1a30}
-.ben{background:#0a1818;color:#34d399;border:1px solid #1a3838}
-.bnw{background:#201808;color:#fcd34d;border:1px solid #403818}
-.bhs{background:#1a1000;color:#f59e0b;border:1px solid #382800}
-.bsrc-az{background:#0a1a28;color:#60a5fa;border:1px solid #1a3858}
-.bsrc-rem{background:#0a1828;color:#38bdf8;border:1px solid #1a3858}
-.bsrc-arb{background:#1a0a28;color:#c084fc;border:1px solid #381858}
-.bsrc-him{background:#0a1a18;color:#34d399;border:1px solid #1a3830}
-.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:.6rem}
-.mi{font-size:.72rem;color:var(--dim);display:flex;align-items:center;gap:3px}
-.desc{font-size:.79rem;color:#5a5880;line-height:1.65;margin-bottom:.8rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.vr{border-top:1px solid var(--border2);padding-top:.7rem;margin-bottom:.7rem}
-.vl{font-size:.59rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--border);margin-bottom:.45rem}
-.sigs{display:flex;flex-direction:column;gap:4px}
-.sig{display:flex;align-items:flex-start;gap:7px;font-size:.73rem;line-height:1.45}
-.si{font-size:.8rem;flex-shrink:0;width:17px;text-align:center;margin-top:1px}
-.sb{color:var(--muted)}
-.sb a{color:var(--purple);text-decoration:none}
-.cy strong{color:#4ade80}.cn strong{color:#f87171}.cuy strong{color:#60a5fa}.cun strong{color:#f87171}.cuu strong{color:var(--muted)}.cde strong{color:#fb923c}.cin strong{color:#34d399}
-.cf{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
-.src{font-size:.63rem;color:var(--dim);padding:2px 7px;border:1px solid var(--border2);border-radius:4px}
-.ab{font-size:.76rem;font-weight:600;font-family:inherit;padding:.38rem .95rem;border-radius:7px;border:1px solid var(--dim);background:transparent;color:#9090d0;cursor:pointer;text-decoration:none;transition:all .15s;display:inline-block}
-.ab:hover{background:var(--pg);border-color:var(--purple);color:#c0b8ff}
-.empty{text-align:center;padding:3rem 1.5rem}
-.ei{font-size:2.5rem;margin-bottom:.8rem}
-.empty p{font-size:.82rem;color:var(--dim);line-height:1.7;max-width:320px;margin:0 auto}
-footer{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--border2);font-size:.7rem;color:var(--border);text-align:center;line-height:1.8}
-footer a{color:var(--dim);text-decoration:none}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;font-size:16px;line-height:24px}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+a{text-decoration:none;color:inherit}
+input,select{font-family:inherit}
+.nav{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 32px;height:60px;display:flex;align-items:center;gap:var(--sp-6)}
+.nav-brand{font-family:'Fraunces',serif;font-size:20px;font-weight:600;letter-spacing:-.5px;flex-shrink:0;color:var(--ink)}
+.nav-links{display:flex;gap:4px;flex:1}
+.nav-link{padding:6px 14px;border-radius:var(--r-sm);font-size:14px;font-weight:500;color:var(--ink-2);background:none;border:none;transition:all .15s ease;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.nav-link:hover{color:var(--ink);background:var(--bg)}
+.nav-link.active{color:var(--ink);background:var(--bg);font-weight:600}
+.nav-count{display:inline-flex;align-items:center;justify-content:center;background:var(--lime);color:var(--ink);min-width:18px;height:18px;padding:0 5px;border-radius:var(--r-pill);font-size:11px;font-weight:700}
+.nav-pref{margin-left:auto;padding:6px 14px;border-radius:var(--r-sm);font-size:14px;font-weight:500;color:var(--ink-2);cursor:pointer;transition:all .15s}
+.nav-pref:hover{color:var(--ink);background:var(--bg)}
+.main{max-width:1280px;margin:0 auto;padding:0 32px 80px}
+.hero{padding:72px 0 48px;max-width:700px}
+.hero-display{font-family:'Fraunces',serif;font-size:56px;line-height:1.1;font-weight:600;letter-spacing:-2px;margin-bottom:18px;color:var(--ink)}
+.hero-sub{font-size:16px;line-height:26px;color:var(--ink-2);max-width:460px}
+.search-module{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-xl);padding:8px;display:flex;align-items:stretch;gap:0;margin-bottom:14px;box-shadow:0 4px 32px rgba(0,0,0,.07);transition:box-shadow .2s}
+.search-module:focus-within{box-shadow:0 8px 48px rgba(0,0,0,.12)}
+.sf{flex:1;padding:10px 18px;position:relative;cursor:pointer;transition:background .1s;border-radius:var(--r-md)}
+.sf:hover{background:var(--bg)}
+.sf-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-2);margin-bottom:3px}
+.sf-value{font-size:15px;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:22px}
+.sf-value.ph{color:#aaa}
+.sdiv{width:1px;background:var(--border);margin:10px 0;flex-shrink:0}
+.search-btn{background:var(--lime);color:var(--ink);border:none;border-radius:var(--r-lg);height:56px;padding:0 32px;font-size:15px;font-weight:700;white-space:nowrap;flex-shrink:0;transition:all .2s;letter-spacing:-.2px;cursor:pointer}
+.search-btn:hover{filter:brightness(.92);transform:translateY(-1px);box-shadow:0 4px 16px rgba(199,243,107,.4)}
+.search-btn:active{transform:translateY(0)}
+.search-btn.loading{opacity:.7;cursor:default;transform:none}
+.dd{position:absolute;top:calc(100% + 6px);left:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:6px;min-width:230px;z-index:300;box-shadow:0 8px 32px rgba(0,0,0,.12);display:none}
+.dd.open{display:block}
+.dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--r-sm);cursor:pointer;font-size:14px;color:var(--ink);transition:background .1s}
+.dd-item:hover{background:var(--bg)}
+.dd-item.sel{font-weight:600}
+.dd-check{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;transition:all .1s}
+.dd-item.sel .dd-check{background:var(--ink);border-color:var(--ink);color:#fff}
+.qchips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.qchip{height:34px;padding:0 16px;border-radius:var(--r-pill);border:1.5px solid var(--border);font-size:13px;font-weight:500;background:var(--surface);color:var(--ink-2);transition:all .15s;cursor:pointer}
+.qchip:hover:not(.on){border-color:var(--ink-2);color:var(--ink)}
+.qchip.on{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:600}
+.feat-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-2);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.feat-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.results-header{display:flex;align-items:baseline;gap:12px;margin:32px 0 20px;flex-wrap:wrap}
+.results-title{font-size:22px;font-weight:600;line-height:28px}
+.results-count{font-size:22px;color:var(--ink-2)}
+.results-sort{margin-left:auto;font-size:13px;color:var(--ink-2);background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:6px 10px;outline:none;cursor:pointer}
+.results-layout{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start}
+.fp{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;position:sticky;top:76px}
+.fp-head{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-2);margin-bottom:16px}
+.fp-sec{margin-bottom:20px}
+.fp-sec-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.fp-chips{display:flex;flex-wrap:wrap;gap:5px}
+.fchip{height:28px;padding:0 10px;border-radius:var(--r-pill);border:1.5px solid var(--border);font-size:12px;font-weight:600;background:transparent;color:var(--ink-2);transition:all .12s;cursor:pointer}
+.fchip:hover:not(.on){border-color:var(--ink-2)}
+.fchip.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.fp-input{width:100%;padding:8px 12px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;color:var(--ink);background:var(--bg);outline:none;margin-top:4px;transition:border-color .15s}
+.fp-input:focus{border-color:var(--blue)}
+.jobs-list{display:flex;flex-direction:column;gap:12px}
+.job-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;transition:border-color .15s ease,transform .15s ease;animation:fadeUp .2s ease both}
+.job-card:hover{border-color:var(--ink);transform:translateY(-2px)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+.company-avatar{width:42px;height:42px;border-radius:var(--r-sm);font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;letter-spacing:-.5px}
+.card-header-info{flex:1;min-width:0}
+.card-company{font-size:12px;font-weight:700;color:var(--ink-2);text-transform:uppercase;letter-spacing:.06em}
+.heart-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--border);background:var(--surface);font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;color:var(--ink-2);cursor:pointer}
+.heart-btn:hover{border-color:var(--coral);color:var(--coral);background:#fff5f4}
+.heart-btn.saved{border-color:var(--coral);color:var(--coral);background:#fff5f4}
+.card-title{font-size:19px;font-weight:600;line-height:26px;margin-bottom:6px;color:var(--ink)}
+.card-meta{font-size:14px;color:var(--ink-2);margin-bottom:12px}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tag{height:24px;padding:0 10px;border-radius:var(--r-pill);font-size:11px;font-weight:700;letter-spacing:.04em;display:inline-flex;align-items:center}
+.t-remote{border:1px solid #a8e05a;color:#3d6b0c;background:#f0fad8}
+.t-english{border:1px solid #a5b4fc;color:var(--blue);background:#eef1ff}
+.t-location{border:1px solid var(--border);color:var(--ink-2);background:transparent}
+.t-seniority{border:1px solid var(--border);color:var(--ink-2);background:transparent}
+.t-closing{border:1px solid var(--coral);color:var(--coral);background:#fff5f3}
+.match-row{margin-bottom:12px}
+.match-badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:var(--r-pill);margin-bottom:4px}
+.m-strong{background:#dff5c2;color:#278A55}
+.m-worth{background:#fef3c7;color:#92600a}
+.m-possible{background:var(--bg);color:var(--ink-2);border:1px solid var(--border)}
+.match-reason{font-size:13px;color:var(--ink-2);line-height:20px}
+.visa-sig{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:var(--r-sm);font-size:13px;margin-bottom:14px;line-height:19px}
+.vs-ok{background:#f0faf5;color:var(--success)}
+.vs-warn{background:#fffbeb;color:#92600a}
+.vs-no{background:#fff5f5;color:var(--error)}
+.vs-unk{background:var(--bg);color:var(--ink-2)}
+.vs-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+.vs-text strong{display:block;font-weight:600;margin-bottom:1px}
+.vs-text small{font-size:12px;opacity:.75}
+.card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border);gap:12px;flex-wrap:wrap}
+.card-meta-right{font-size:13px;color:var(--ink-2)}
+.card-source{font-size:12px;color:#ccc;margin-left:6px}
+.card-actions{display:flex;gap:8px}
+.btn-apply{background:var(--lime);color:var(--ink);border:none;border-radius:var(--r-sm);height:36px;padding:0 18px;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-apply:hover{filter:brightness(.9)}
+.btn-track{background:var(--surface);color:var(--blue);border:1.5px solid rgba(53,89,255,.3);border-radius:var(--r-sm);height:36px;padding:0 14px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s}
+.btn-track:hover{background:#eef1ff;border-color:var(--blue)}
+.btn-track.tracked{color:var(--success);border-color:rgba(39,138,85,.3);background:#f0faf5}
+.skel-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;margin-bottom:12px}
+.sk{background:linear-gradient(90deg,var(--bg) 25%,var(--surface-alt) 50%,var(--bg) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:4px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.empty{text-align:center;padding:80px 24px}
+.empty-icon{font-size:44px;margin-bottom:18px}
+.empty-h{font-size:20px;font-weight:600;margin-bottom:8px}
+.empty-p{font-size:14px;color:var(--ink-2);margin-bottom:22px;line-height:21px}
+.btn-outline{background:var(--surface);color:var(--ink);border:1.5px solid var(--border);border-radius:var(--r-sm);height:42px;padding:0 22px;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s}
+.btn-outline:hover{border-color:var(--ink)}
+.view-hd{padding:44px 0 24px}
+.view-title{font-family:'Fraunces',serif;font-size:36px;font-weight:600;letter-spacing:-1px;margin-bottom:4px}
+.view-sub{font-size:15px;color:var(--ink-2)}
+.tracker-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.ts{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;text-align:center}
+.ts-num{font-size:36px;font-weight:700;margin-bottom:3px;font-family:'Fraunces',serif}
+.ts-label{font-size:12px;color:var(--ink-2);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.ts-saved .ts-num{color:var(--ink)}
+.ts-applied .ts-num{color:var(--blue)}
+.ts-interview .ts-num{color:#7c3aed}
+.ts-offer .ts-num{color:var(--success)}
+.tracker-board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:start}
+.tb-col{background:var(--surface-alt);border-radius:var(--r-lg);padding:14px;min-height:120px}
+.tb-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.tb-t-saved{color:var(--ink)}
+.tb-t-applied{color:var(--blue)}
+.tb-t-interview{color:#7c3aed}
+.tb-t-offer{color:var(--success)}
+.tb-count{color:var(--ink-2);font-weight:400;text-transform:none;letter-spacing:0;font-size:13px}
+.tc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:14px;margin-bottom:8px}
+.tc-title{font-size:13px;font-weight:600;line-height:18px;margin-bottom:3px}
+.tc-co{font-size:12px;color:var(--ink-2);margin-bottom:10px}
+.tc-acts{display:flex;gap:6px;flex-wrap:wrap}
+.tc-btn{height:26px;padding:0 10px;border-radius:var(--r-pill);font-size:11px;font-weight:600;border:1.5px solid var(--border);background:transparent;color:var(--ink-2);cursor:pointer;transition:all .12s}
+.tc-btn:hover{border-color:var(--ink);background:var(--bg)}
+.tc-btn.next{border-color:rgba(53,89,255,.4);color:var(--blue)}
+.tc-btn.next:hover{background:#eef1ff;border-color:var(--blue)}
+.tc-btn.rm{border-color:rgba(217,75,75,.3);color:var(--error)}
+.tc-btn.rm:hover{background:#fff5f5}
+.tb-empty{font-size:13px;color:var(--ink-2);padding:6px 0}
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 22px;border-radius:var(--r-pill);font-size:13px;font-weight:600;z-index:999;opacity:0;transition:opacity .2s;pointer-events:none}
+.page-footer{font-size:12px;color:#ccc;text-align:center;padding:32px 0 0;border-top:1px solid var(--border);margin-top:56px;line-height:2}
+.page-footer a{color:var(--ink-2)}
 </style>
 </head>
 <body>
-<div class="shell">
-<header>
-<div class="brand"><div class="pulse"></div><h1>Job Scout</h1></div>
-<p class="tag">PD · PM · Fashion Design · English-only · Berlin · Remote Germany / Europe / India · Live visa status</p>
-<p class="sources-note">Sources: Adzuna · Remotive · Arbeitnow · Himalayas · Highsnobiety</p>
-</header>
-<div class="box">
-<div class="row">
-<div class="fg"><label>Role</label><div class="chips" id="cr">
-<div class="chip on" data-v="product designer">Product Designer</div>
-<div class="chip on" data-v="product manager">Product Manager</div>
-<div class="chip" data-v="ux designer">UX Designer</div>
-<div class="chip" data-v="fashion designer">Fashion Designer</div>
-<div class="chip" data-v="ui designer">UI Designer</div>
-</div></div>
-<div class="fg" style="max-width:150px"><label>Seniority</label><div class="chips" id="cs">
-<div class="chip on" data-v="">Any</div>
-<div class="chip" data-v="senior">Senior</div>
-<div class="chip" data-v="lead">Lead</div>
-<div class="chip" data-v="junior">Junior</div>
-</div></div>
-</div>
-<div class="row"><div class="fg"><label>Location</label><div class="chips" id="cl">
-<div class="chip on" data-v="berlin">Berlin</div>
-<div class="chip on" data-v="germany">Remote Germany</div>
-<div class="chip on" data-v="europe">Remote Europe</div>
-<div class="chip on" data-v="india">Remote India</div>
-<div class="chip on" data-v="worldwide">Worldwide Remote</div>
-</div></div></div>
-<div class="kw-row">
-<div class="kw-wrap"><label>Keywords (optional)</label><input type="text" id="kw" placeholder="e.g. figma, SaaS, luxury fashion, startup, B2B..."></div>
-<button class="btn" id="sb" onclick="go()">Search Jobs</button>
-</div>
-</div>
-<div id="rb" class="reg loading"><div class="rdot"></div><span>UK Home Office sponsor register: loading...</span></div>
-<div class="sbar" id="st"></div>
-<div id="root"></div>
-<footer>
-Jobs via <a href="https://www.adzuna.com" target="_blank">Adzuna</a> · <a href="https://remotive.com" target="_blank">Remotive</a> · <a href="https://arbeitnow.com" target="_blank">Arbeitnow</a> · <a href="https://himalayas.app" target="_blank">Himalayas</a><br>
-UK visa data: <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers" target="_blank">Home Office Register of Licensed Sponsors</a><br>
-Visa status is informational only — always confirm sponsorship directly with the employer.
-</footer>
+<div id="toast"></div>
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">JobScout</div>
+    <div class="nav-links">
+      <button class="nav-link active" id="nl-jobs" onclick="navTo('search')">Jobs</button>
+      <button class="nav-link" id="nl-saved" onclick="navTo('saved')">Saved <span class="nav-count" id="saved-count">0</span></button>
+      <button class="nav-link" id="nl-apps" onclick="navTo('apps')">Applications</button>
+    </div>
+    <button class="nav-pref">Preferences</button>
+  </div>
+</nav>
+<div class="main">
+  <div id="root"></div>
+  <div class="page-footer">
+    Jobs from <a href="https://www.adzuna.com" target="_blank">Adzuna</a> · <a href="https://remotive.com" target="_blank">Remotive</a> · <a href="https://arbeitnow.com" target="_blank">Arbeitnow</a> · <a href="https://himalayas.app" target="_blank">Himalayas</a> &nbsp;·&nbsp;
+    UK visa data: <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers" target="_blank">Home Office Sponsor Register</a><br>
+    Visa status is informational only — always confirm sponsorship directly with the employer.
+  </div>
 </div>
 <script>
-const AID='586c69ed', AKY='f5d7d2038dc1f8aabff0ebc1d4d8f7f5';
-
-// ── UK Register ────────────────────────────────────────────────────────
+const AID='586c69ed',AKY='f5d7d2038dc1f8aabff0ebc1d4d8f7f5';
+const ROLES=['Product Designer','Product Manager','UX Designer','Fashion Designer','UI Designer'];
+const LOCS=['Berlin','Remote Germany','Remote Europe','Remote India','Worldwide'];
+const LEVELS=['Any','Junior','Mid-level','Senior','Lead'];
+const AV_COLORS=['#3559FF','#FF705C','#278A55','#C88700','#7c3aed','#0ea5e9','#db2777','#ea580c'];
+const S={
+  view:'search',jobs:[],loading:false,
+  selRoles:['Product Designer','Product Manager'],
+  selLocs:['Berlin'],selLevel:'Any',kw:'',
+  englishOnly:true,excludeGerman:true,
+  saved:lsGet('js_saved',[]),apps:lsGet('js_apps',[]),
+  lastQ:null,
+};
 let UKM=null;
+function lsGet(k,d){try{return JSON.parse(localStorage.getItem(k))||d;}catch(e){return d;}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function isSaved(id){return S.saved.some(j=>j._id===id);}
+function isTracked(id){return S.apps.some(a=>a.job._id===id);}
+function navTo(view){
+  S.view=view;
+  const map={search:'jobs',results:'jobs',saved:'saved',apps:'apps'};
+  document.querySelectorAll('.nav-link').forEach(el=>el.classList.remove('active'));
+  const nl=document.getElementById('nl-'+(map[view]||'jobs'));
+  if(nl)nl.classList.add('active');
+  updateSavedCount();
+  render();
+  window.scrollTo(0,0);
+}
+function updateSavedCount(){
+  const el=document.getElementById('saved-count');
+  if(el)el.textContent=S.saved.length;
+}
+function render(){
+  const root=document.getElementById('root');
+  if(!root)return;
+  if(S.view==='search')root.innerHTML=renderSearch();
+  else if(S.view==='results')root.innerHTML=renderResults();
+  else if(S.view==='saved')root.innerHTML=renderSaved();
+  else if(S.view==='apps')root.innerHTML=renderApps();
+}
+function renderSearch(){
+  const rv=S.selRoles.length===0?'<span class="ph">Any role</span>':S.selRoles.length===1?esc(S.selRoles[0]):S.selRoles.length+' roles';
+  const lv=S.selLocs.length===0?'<span class="ph">Anywhere</span>':S.selLocs.length===1?esc(S.selLocs[0]):S.selLocs.length+' locations';
+  const lev=esc(S.selLevel||'Any');
+  return '<div class="hero">'
+    +'<div class="hero-display">Find work worth<br>applying to.</div>'
+    +'<p class="hero-sub">Product, UX, PM and fashion roles filtered for your location, language and work eligibility.</p>'
+    +'</div>'
+    +'<div class="search-module" id="sm">'
+      +'<div class="sf" onclick="openDD(event,\'roles\')">'
+        +'<div class="sf-label">What role?</div><div class="sf-value" id="sv-roles">'+rv+'</div>'
+        +'<div class="dd" id="dd-roles">'+ROLES.map(r=>'<div class="dd-item'+(S.selRoles.includes(r)?' sel':'')+'" onclick="toggleRole(event,\''+r+'\')"><div class="dd-check">'+(S.selRoles.includes(r)?'✓':'')+'</div>'+esc(r)+'</div>').join('')+'</div>'
+      +'</div>'
+      +'<div class="sdiv"></div>'
+      +'<div class="sf" onclick="openDD(event,\'locs\')">'
+        +'<div class="sf-label">Where?</div><div class="sf-value" id="sv-locs">'+lv+'</div>'
+        +'<div class="dd" id="dd-locs">'+LOCS.map(l=>'<div class="dd-item'+(S.selLocs.includes(l)?' sel':'')+'" onclick="toggleLoc(event,\''+l+'\')"><div class="dd-check">'+(S.selLocs.includes(l)?'✓':'')+'</div>'+esc(l)+'</div>').join('')+'</div>'
+      +'</div>'
+      +'<div class="sdiv"></div>'
+      +'<div class="sf" onclick="openDD(event,\'level\')">'
+        +'<div class="sf-label">Level?</div><div class="sf-value" id="sv-level">'+lev+'</div>'
+        +'<div class="dd" id="dd-level">'+LEVELS.map(l=>'<div class="dd-item'+(S.selLevel===l?' sel':'')+'" onclick="setLevel(event,\''+l+'\')"><div class="dd-check">'+(S.selLevel===l?'✓':'')+'</div>'+esc(l)+'</div>').join('')+'</div>'
+      +'</div>'
+      +'<button class="search-btn" id="search-btn" onclick="doSearch()">Search jobs →</button>'
+    +'</div>'
+    +'<div class="qchips">'
+      +'<button class="qchip'+(S.englishOnly?' on':'')+'" onclick="S.englishOnly=!S.englishOnly;this.classList.toggle(\'on\')">English only</button>'
+      +'<button class="qchip'+(S.excludeGerman?' on':'')+'" onclick="S.excludeGerman=!S.excludeGerman;this.classList.toggle(\'on\')">Exclude German-required</button>'
+    +'</div>'
+    +(HS.length?'<div style="margin-top:52px"><div class="feat-label">⭐ Highsnobiety — Live Berlin openings</div><div class="jobs-list">'+HS.map(j=>card(j)).join('')+'</div></div>':'');
+}
+function renderResults(){
+  const q=S.lastQ;
+  const title=(q&&q.roles.length?q.roles[0]:'Jobs')+(q&&q.locs.length?' · '+q.locs[0]:'');
+  if(S.loading){
+    return '<div class="results-header"><div class="results-title" style="color:var(--ink-2)">Searching...</div></div>'
+      +'<div class="results-layout">'+filterPanel()
+      +'<div class="jobs-list">'+[1,2,3,4,5].map(()=>skeleton()).join('')+'</div></div>';
+  }
+  const jobs=S.jobs;
+  return '<div class="results-header">'
+    +'<div class="results-title">'+esc(title)+'</div>'
+    +'<div class="results-count">'+jobs.length+' jobs</div>'
+    +'<select class="results-sort" onchange="sortJobs(this.value)"><option>Most recent</option><option>Best match</option></select>'
+    +'</div>'
+    +'<div class="results-layout">'+filterPanel()
+    +'<div>'+(jobs.length?'<div class="jobs-list">'+jobs.map(j=>card(j)).join('')+'</div>'
+      :'<div class="empty"><div class="empty-icon">🔍</div><div class="empty-h">Nothing good yet.</div><div class="empty-p">Try widening your location or removing one filter.</div><button class="btn-outline" onclick="navTo(\'search\')">Expand search →</button></div>')
+    +'</div></div>';
+}
+function filterPanel(){
+  return '<aside class="fp"><div class="fp-head">Filters</div>'
+    +'<div class="fp-sec"><div class="fp-sec-title">Role</div><div class="fp-chips">'+ROLES.map(r=>'<button class="fchip'+(S.selRoles.includes(r)?' on':'')+'" onclick="fpToggleRole(\''+r+'\')">'+esc(r)+'</button>').join('')+'</div></div>'
+    +'<div class="fp-sec"><div class="fp-sec-title">Location</div><div class="fp-chips">'+LOCS.map(l=>'<button class="fchip'+(S.selLocs.includes(l)?' on':'')+'" onclick="fpToggleLoc(\''+l+'\')">'+esc(l)+'</button>').join('')+'</div></div>'
+    +'<div class="fp-sec"><div class="fp-sec-title">Seniority</div><div class="fp-chips">'+LEVELS.map(l=>'<button class="fchip'+(S.selLevel===l?' on':'')+'" onclick="fpSetLevel(\''+l+'\')">'+esc(l)+'</button>').join('')+'</div></div>'
+    +'<div class="fp-sec"><div class="fp-sec-title">Keywords</div><input class="fp-input" id="fp-kw" placeholder="figma, SaaS, luxury fashion..." value="'+esc(S.kw)+'" onchange="S.kw=this.value" onkeydown="if(event.key===\'Enter\')doSearch()"></div>'
+    +'<div class="fp-sec"><div class="fp-sec-title">Language</div><div class="fp-chips">'
+    +'<button class="fchip'+(S.excludeGerman?' on':'')+'" onclick="S.excludeGerman=!S.excludeGerman;doSearch()">No German req.</button>'
+    +'<button class="fchip'+(S.englishOnly?' on':'')+'" onclick="S.englishOnly=!S.englishOnly;doSearch()">English only</button>'
+    +'</div></div>'
+    +'</aside>';
+}
+function renderSaved(){
+  return '<div class="view-hd"><div class="view-title">Saved jobs</div><div class="view-sub">'+S.saved.length+' saved</div></div>'
+    +(S.saved.length?'<div class="jobs-list">'+S.saved.map(j=>card(j)).join('')+'</div>'
+      :'<div class="empty"><div class="empty-icon">🤍</div><div class="empty-h">Nothing saved yet.</div><div class="empty-p">Hit the heart on any job to save it here.</div><button class="btn-outline" onclick="navTo(\'search\')">Browse jobs →</button></div>');
+}
+function renderApps(){
+  const cols=['saved','applied','interview','offer'];
+  const labels={saved:'Saved',applied:'Applied',interview:'Interview',offer:'Offer'};
+  const cls={saved:'tb-t-saved',applied:'tb-t-applied',interview:'tb-t-interview',offer:'tb-t-offer'};
+  const statCls={saved:'ts-saved',applied:'ts-applied',interview:'ts-interview',offer:'ts-offer'};
+  const next={saved:'applied',applied:'interview',interview:'offer',offer:null};
+  const nextLabel={applied:'→ Applied',interview:'→ Interview',offer:'→ Offer'};
+  const counts={};cols.forEach(c=>counts[c]=S.apps.filter(a=>a.status===c).length);
+  return '<div class="view-hd"><div class="view-title">Applications</div><div class="view-sub">Track your job search progress</div></div>'
+    +'<div class="tracker-stats">'+cols.map(c=>'<div class="ts '+statCls[c]+'"><div class="ts-num">'+counts[c]+'</div><div class="ts-label">'+labels[c]+'</div></div>').join('')+'</div>'
+    +(S.apps.length===0?'<div class="empty"><div class="empty-icon">📋</div><div class="empty-h">Nothing tracked yet.</div><div class="empty-p">Save jobs and click Track to manage your applications here.</div><button class="btn-outline" onclick="navTo(\'search\')">Find jobs →</button></div>'
+      :'<div class="tracker-board">'+cols.map(col=>{
+          const items=S.apps.filter(a=>a.status===col);
+          const n=next[col];
+          return '<div class="tb-col"><div class="tb-title '+cls[col]+'">'+labels[col]+' <span class="tb-count">('+items.length+')</span></div>'
+            +(items.length===0?'<div class="tb-empty">Empty</div>':'')
+            +items.map(a=>{
+              const j=a.job;
+              return '<div class="tc"><div class="tc-title">'+esc(j._title)+'</div><div class="tc-co">'+esc(j._company)+'</div>'
+                +'<div class="tc-acts">'
+                +(n?'<button class="tc-btn next" onclick="mvApp(\''+j._id+'\',\''+n+'\')">'+nextLabel[n]+'</button>':'')
+                +'<button class="tc-btn rm" onclick="rmApp(\''+j._id+'\')">Remove</button>'
+                +'</div></div>';
+            }).join('')
+            +'</div>';
+        }).join('')+'</div>');
+}
+function card(j){
+  const id=j._id;
+  const sv=isSaved(id),tr=isTracked(id);
+  const av=AV_COLORS[(j._company||'?').charCodeAt(0)%AV_COLORS.length];
+  const al=(j._company||'?')[0].toUpperCase();
+  const m=matchScore(j);
+  const vsig=visaSignal(j);
+  const locL=(j._loc||'').toLowerCase();
+  const tags=[];
+  if(locL.includes('remote')||locL.includes('worldwide'))tags.push('<span class="tag t-remote">REMOTE</span>');
+  tags.push('<span class="tag t-english">ENGLISH</span>');
+  if(j._cty==='de')tags.push('<span class="tag t-location">GERMANY</span>');
+  else if(j._cty==='gb')tags.push('<span class="tag t-location">UK</span>');
+  else if(j._cty==='nl')tags.push('<span class="tag t-location">NETHERLANDS</span>');
+  else if(j._cty==='in')tags.push('<span class="tag t-location">INDIA</span>');
+  const meta=[j._loc,j._sal].filter(Boolean).join(' · ');
+  return '<div class="job-card" id="jc-'+id+'">'
+    +'<div class="card-header">'
+      +'<div class="company-avatar" style="background:'+av+'">'+al+'</div>'
+      +'<div class="card-header-info"><div class="card-company">'+esc(j._company||'')+'</div></div>'
+      +'<button class="heart-btn'+(sv?' saved':'')+'" onclick="toggleSave(\''+id+'\')" title="'+(sv?'Saved':'Save to list')+'">'+(sv?'♥':'♡')+'</button>'
+    +'</div>'
+    +'<div class="card-title">'+esc(j._title||'')+'</div>'
+    +'<div class="card-meta">'+esc(meta)+'</div>'
+    +'<div class="card-tags">'+tags.join('')+'</div>'
+    +'<div class="match-row"><div class="match-badge '+m.cls+'">'+m.icon+' '+m.label+'</div><div class="match-reason">'+m.reason+'</div></div>'
+    +vsig
+    +'<div class="card-footer">'
+      +'<div><span class="card-meta-right">'+(timeSince(j._date)||'Recently posted')+'</span><span class="card-source">'+esc(j._src||'')+'</span></div>'
+      +'<div class="card-actions">'
+        +'<button class="btn-track'+(tr?' tracked':'')+'" onclick="trackJob(\''+id+'\')">'+(tr?'✓ Tracked':'+ Track')+'</button>'
+        +'<a class="btn-apply" href="'+esc(j._url||'#')+'" target="_blank" rel="noopener">Apply →</a>'
+      +'</div>'
+    +'</div>'
+    +'</div>';
+}
+function matchScore(j){
+  const tl=(j._title||'').toLowerCase(),ll=(j._loc||'').toLowerCase();
+  const rm=S.selRoles.some(r=>tl.includes(r.toLowerCase().split(' ')[0]));
+  const lm=S.selLocs.some(l=>{
+    const lc=l.toLowerCase();
+    if(lc==='berlin')return ll.includes('berlin');
+    if(lc==='remote germany')return ll.includes('german')||ll.includes('remote')||ll.includes('worldwide');
+    if(lc==='remote europe')return ll.includes('europe')||ll.includes('remote')||ll.includes('uk')||ll.includes('worldwide');
+    if(lc==='remote india')return ll.includes('india')||ll.includes('worldwide')||ll.includes('remote');
+    return ll.includes('remote')||ll.includes('worldwide');
+  });
+  if(rm&&lm)return{cls:'m-strong',icon:'●',label:'Strong match',reason:'Role and location align with your search.'};
+  if(rm)return{cls:'m-worth',icon:'◐',label:'Worth a look',reason:'Role matches — verify the location works for you.'};
+  if(lm)return{cls:'m-worth',icon:'◐',label:'Worth a look',reason:'Location matches — check if the role aligns with your skills.'};
+  return{cls:'m-possible',icon:'○',label:'Possible match',reason:'Check the full listing to see if it fits.'};
+}
+function visaSignal(j){
+  const t=(j._title||'')+' '+(j._desc||'');
+  const VY=['visa sponsorship','will sponsor','sponsorship provided','sponsorship available','we sponsor','skilled worker visa','work permit sponsor','offer sponsorship','happy to sponsor'];
+  const VN=['no sponsorship','cannot sponsor','unable to sponsor','must have right to work','we do not offer sponsorship','no visa sponsorship'];
+  const l=t.toLowerCase();
+  if(VN.some(k=>l.includes(k)))return vs('no','⚠️','Sponsorship not available','Employer states they cannot sponsor for this role');
+  if(VY.some(k=>l.includes(k)))return vs('ok','✓','Work eligibility compatible','Employer states visa sponsorship is available');
+  if(j._cty==='gb'&&UKM&&UKM!=='err'){
+    const f=chkUK(j._company||'');
+    if(f&&typeof f==='object')return vs('ok','🇬🇧','UK licensed sponsor',''+esc(f.name)+' appears on the Home Office register — confirm this specific role qualifies');
+    if(f===null)return vs('no','🇬🇧','Not on UK sponsor register','Verify directly with employer before applying');
+  }
+  if(j._cty==='de')return vs('warn','🇩🇪','Sponsorship unclear','EU Blue Card may apply for design/PM roles above €43.8k — ask employer');
+  if(j._cty==='in')return vs('ok','🇮🇳','No sponsorship needed','Remote India — you work from your location');
+  return vs('unk','⬜','Sponsorship not mentioned','Contact employer directly to confirm eligibility');
+}
+function vs(t,ic,h,s){return'<div class="visa-sig vs-'+t+'"><div class="vs-icon">'+ic+'</div><div class="vs-text"><strong>'+h+'</strong><small>'+s+'</small></div></div>';}
+function skeleton(){
+  return '<div class="skel-card">'
+    +'<div style="display:flex;gap:12px;margin-bottom:16px"><div class="sk" style="width:42px;height:42px;border-radius:8px;flex-shrink:0"></div>'
+    +'<div style="flex:1"><div class="sk" style="height:12px;width:35%;margin-bottom:8px;border-radius:4px"></div><div class="sk" style="height:10px;width:55%;border-radius:4px"></div></div></div>'
+    +'<div class="sk" style="height:20px;width:65%;margin-bottom:10px;border-radius:4px"></div>'
+    +'<div class="sk" style="height:12px;width:45%;margin-bottom:16px;border-radius:4px"></div>'
+    +'<div style="display:flex;gap:6px"><div class="sk" style="height:22px;width:60px;border-radius:999px"></div><div class="sk" style="height:22px;width:70px;border-radius:999px"></div></div>'
+    +'</div>';
+}
+function toggleSave(id){
+  const all=[...S.jobs,...HS];
+  const j=all.find(x=>x._id===id)||S.saved.find(x=>x._id===id);
+  if(!j)return;
+  const idx=S.saved.findIndex(x=>x._id===id);
+  if(idx>=0){S.saved.splice(idx,1);}else{S.saved.unshift(j);}
+  lsSet('js_saved',S.saved);updateSavedCount();
+  const btn=document.querySelector('#jc-'+id+' .heart-btn');
+  if(btn){const s=isSaved(id);btn.className='heart-btn'+(s?' saved':'');btn.textContent=s?'♥':'♡';btn.title=s?'Saved':'Save to list';}
+}
+function trackJob(id){
+  const all=[...S.jobs,...HS,...S.saved];
+  const j=all.find(x=>x._id===id);
+  if(!j)return;
+  if(!isTracked(id)){S.apps.unshift({job:j,status:'applied',at:new Date().toISOString()});lsSet('js_apps',S.apps);}
+  const btn=document.querySelector('#jc-'+id+' .btn-track');
+  if(btn){btn.className='btn-track tracked';btn.textContent='✓ Tracked';}
+  toast('Added to Applications');
+}
+function mvApp(id,ns){const a=S.apps.find(x=>x.job._id===id);if(a){a.status=ns;lsSet('js_apps',S.apps);render();}}
+function rmApp(id){S.apps=S.apps.filter(a=>a.job._id!==id);lsSet('js_apps',S.apps);render();}
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.style.opacity='1';
+  clearTimeout(t._t);t._t=setTimeout(()=>t.style.opacity='0',2200);
+}
+function openDD(e,id){
+  e.stopPropagation();
+  const all=document.querySelectorAll('.dd');
+  const target=document.getElementById('dd-'+id);
+  const wasOpen=target&&target.classList.contains('open');
+  all.forEach(d=>d.classList.remove('open'));
+  if(!wasOpen&&target)target.classList.add('open');
+}
+document.addEventListener('click',()=>document.querySelectorAll('.dd').forEach(d=>d.classList.remove('open')));
+function toggleRole(e,r){
+  e.stopPropagation();
+  const i=S.selRoles.indexOf(r);i>=0?S.selRoles.splice(i,1):S.selRoles.push(r);
+  refreshDD('roles',r);
+  const sv=document.getElementById('sv-roles');
+  if(sv)sv.innerHTML=S.selRoles.length===0?'<span class="ph">Any role</span>':S.selRoles.length===1?esc(S.selRoles[0]):S.selRoles.length+' roles';
+}
+function toggleLoc(e,l){
+  e.stopPropagation();
+  const i=S.selLocs.indexOf(l);i>=0?S.selLocs.splice(i,1):S.selLocs.push(l);
+  refreshDD('locs',l);
+  const sv=document.getElementById('sv-locs');
+  if(sv)sv.innerHTML=S.selLocs.length===0?'<span class="ph">Anywhere</span>':S.selLocs.length===1?esc(S.selLocs[0]):S.selLocs.length+' locations';
+}
+function setLevel(e,l){
+  e.stopPropagation();
+  S.selLevel=l;
+  const sv=document.getElementById('sv-level');if(sv)sv.textContent=l;
+  document.querySelectorAll('#dd-level .dd-item').forEach(el=>{
+    const v=el.textContent.replace('✓','').trim();
+    el.className='dd-item'+(v===l?' sel':'');
+    el.querySelector('.dd-check').textContent=v===l?'✓':'';
+  });
+  document.getElementById('dd-level')?.classList.remove('open');
+}
+function refreshDD(id,changed){
+  const arr=id==='roles'?S.selRoles:S.selLocs;
+  document.querySelectorAll('#dd-'+id+' .dd-item').forEach(el=>{
+    const v=el.textContent.replace('✓','').trim();
+    if(v===changed){
+      const sel=arr.includes(v);
+      el.className='dd-item'+(sel?' sel':'');
+      el.querySelector('.dd-check').textContent=sel?'✓':'';
+    }
+  });
+}
+function fpToggleRole(r){const i=S.selRoles.indexOf(r);i>=0?S.selRoles.splice(i,1):S.selRoles.push(r);doSearch();}
+function fpToggleLoc(l){const i=S.selLocs.indexOf(l);i>=0?S.selLocs.splice(i,1):S.selLocs.push(l);doSearch();}
+function fpSetLevel(l){S.selLevel=l;doSearch();}
+function sortJobs(v){
+  if(v==='Best match')S.jobs.sort((a,b)=>sVal(b)-sVal(a));
+  else S.jobs.sort((a,b)=>new Date(b._date||0)-new Date(a._date||0));
+  render();
+}
+function sVal(j){const m=matchScore(j);return m.cls==='m-strong'?2:m.cls==='m-worth'?1:0;}
+async function doSearch(){
+  if(!S.selRoles.length||!S.selLocs.length){toast('Select at least one role and location');return;}
+  S.lastQ={roles:[...S.selRoles],locs:[...S.selLocs],seniority:S.selLevel,kw:S.kw};
+  S.loading=true;S.view='results';render();
+  const sen=S.selLevel!=='Any'?S.selLevel:'';
+  const all=[],seen=new Set();let filtered=0;
+  for(const role of S.selRoles){
+    const q=(sen?sen+' '+role:role)+(S.kw?' '+S.kw:'');
+    const [az,rm,arb,him]=await Promise.all([fetchAdzuna(role,S.selLocs),fetchRemotive(q),fetchArbeitnow(role),fetchHimalayas(q)]);
+    for(const j of [...az,...rm,...arb,...him]){
+      if(seen.has(j._id))continue;seen.add(j._id);
+      if(S.excludeGerman&&isGR((j._title||'')+' '+(j._desc||''))){filtered++;continue;}
+      all.push(j);
+    }
+  }
+  const seen2=new Set();
+  S.jobs=all.filter(j=>{const k=(j._title||'').toLowerCase().slice(0,40)+(j._company||'').toLowerCase().slice(0,20);if(seen2.has(k))return false;seen2.add(k);return true;});
+  S.jobs.sort((a,b)=>new Date(b._date||0)-new Date(a._date||0));
+  S.loading=false;render();
+}
+const GR_REQ=['german required','german language required','fluent in german','native german','german speaker required','must speak german','german is a must','german is required','deutschkenntnisse erforderlich'];
+const GR_OPT=['german is a plus','german is preferred','german not required','no german required','german is a bonus','german is optional'];
+function isGR(t){const l=(t||'').toLowerCase();if(GR_OPT.some(k=>l.includes(k)))return false;return GR_REQ.some(k=>l.includes(k));}
+let _azn=0;
+async function fetchAdzuna(role,locs){
+  const cfgs=[];
+  if(locs.includes('Berlin'))cfgs.push({c:'de',wh:'Berlin'});
+  if(locs.includes('Remote Germany'))cfgs.push({c:'de',wh:''});
+  if(locs.includes('Remote Europe')){cfgs.push({c:'gb',wh:'London'});cfgs.push({c:'nl',wh:''});}
+  if(locs.includes('Remote India'))cfgs.push({c:'in',wh:''});
+  if(locs.includes('Worldwide'))cfgs.push({c:'gb',wh:''});
+  const res=[];const ctyM={de:'de',gb:'gb',nl:'nl',in:'in'};
+  for(const cfg of cfgs){
+    try{
+      const p=new URLSearchParams({app_id:AID,app_key:AKY,results_per_page:8,what:role});
+      if(cfg.wh)p.set('where',cfg.wh);
+      const r=await fetch('https://api.adzuna.com/v1/api/jobs/'+cfg.c+'/search/1?'+p);
+      if(!r.ok)continue;const d=await r.json();
+      (d.results||[]).forEach(j=>{
+        const loc=cfg.wh||(cfg.c==='de'?'Remote Germany':cfg.c==='gb'?'UK / Europe':cfg.c==='nl'?'Netherlands':'Remote India');
+        res.push({_id:'az'+(++_azn),_title:j.title,_company:j.company?.display_name||'',_loc:loc,_desc:j.description,_url:j.redirect_url,_date:j.created,_src:'Adzuna',_sal:j.salary_min&&j.salary_max?'€'+Math.round(j.salary_min/1e3)+'k–€'+Math.round(j.salary_max/1e3)+'k':null,_cty:ctyM[cfg.c]});
+      });
+    }catch(e){console.warn('Adzuna',e);}
+  }
+  return res;
+}
+async function fetchRemotive(q){
+  try{
+    const r=await fetch('https://remotive.com/api/remote-jobs?search='+encodeURIComponent(q)+'&limit=20');
+    if(!r.ok)return[];const d=await r.json();
+    return(d.jobs||[]).map((j,i)=>({_id:'rm'+i+q.slice(0,6),_title:j.title,_company:j.company_name,_loc:j.candidate_required_location||'Worldwide Remote',_desc:j.description,_url:j.url,_date:j.publication_date,_src:'Remotive',_sal:j.salary||null,_cty:gc(j.candidate_required_location||'')}));
+  }catch(e){console.warn('Remotive',e);return[];}
+}
+async function fetchArbeitnow(role){
+  try{
+    const r=await fetch('https://arbeitnow.com/api/job-board-api?page=1');
+    if(!r.ok)return[];const d=await r.json();const q=role.toLowerCase();
+    return(d.data||[]).filter(j=>{
+      const t=((j.title||'')+' '+(j.tags||[]).join(' ')).toLowerCase();
+      return q.split(' ').some(w=>w.length>3&&t.includes(w));
+    }).map((j,i)=>({_id:'arb'+i+(j.title||'').slice(0,6),_title:j.title,_company:j.company_name,_loc:j.location||'Remote Germany',_desc:j.description,_url:j.url,_date:j.created_at?new Date(j.created_at*1000).toISOString():null,_src:'Arbeitnow',_sal:null,_cty:'de'}));
+  }catch(e){console.warn('Arbeitnow',e);return[];}
+}
+async function fetchHimalayas(q){
+  try{
+    const r=await fetch('https://himalayas.app/jobs/api?q='+encodeURIComponent(q)+'&limit=15');
+    if(!r.ok)return[];const d=await r.json();
+    return(d.jobs||[]).map((j,i)=>({_id:'him'+i+q.slice(0,6),_title:j.title,_company:j.company?.name||j.companyName||'',_loc:j.location||j.regions?.join(', ')||'Worldwide Remote',_desc:j.description||j.about||'',_url:j.applicationLink||j.url||'',_date:j.publishedAt||j.createdAt||null,_src:'Himalayas',_sal:j.salary||null,_cty:gc(j.location||'')}));
+  }catch(e){console.warn('Himalayas',e);return[];}
+}
+function gc(loc){const l=(loc||'').toLowerCase();if(l.includes('germany')||l.includes('berlin'))return'de';if(l.includes('uk')||l.includes('united kingdom')||l.includes('london'))return'gb';if(l.includes('netherlands'))return'nl';if(l.includes('india'))return'in';return'world';}
 async function loadUK(){
-  setBanner('loading','UK Home Office sponsor register: loading...');
   const URLS=[
     'https://assets.publishing.service.gov.uk/media/6a3e482e30b491f55b3c4ac3/SP_-_Worker_and_Temporary_Worker_Web_Register_-_2026-06-26.csv',
     'https://corsproxy.io/?url=https://assets.publishing.service.gov.uk/media/6a3e482e30b491f55b3c4ac3/SP_-_Worker_and_Temporary_Worker_Web_Register_-_2026-06-26.csv'
@@ -159,225 +556,32 @@ async function loadUK(){
       const txt=await r.text();const lines=txt.split('\n');const map=new Map();
       for(let i=1;i<lines.length;i++){
         const ln=lines[i].trim();if(!ln)continue;
-        const c=csvLine(ln);if(c.length<4)continue;
+        const c=csvL(ln);if(c.length<4)continue;
         const nm=c[0].replace(/^"+|"+$/g,'').trim();
         const rat=c[3]?c[3].replace(/^"+|"+$/g,'').trim():'';
         const rt=c[4]?c[4].replace(/^"+|"+$/g,'').trim():'';
-        if(!nm)continue;const k=norm(nm);
+        if(!nm)continue;const k=normN(nm);
         if(!map.has(k))map.set(k,{name:nm,rating:rat,routes:[]});
         if(rt&&!map.get(k).routes.includes(rt))map.get(k).routes.push(rt);
       }
-      UKM=map;setBanner('ok','UK sponsor register: '+map.size.toLocaleString()+' licensed companies (Home Office, Jun 2026)');
-      document.querySelectorAll('[data-ukc]').forEach(el=>el.outerHTML=ukSig(el.dataset.ukc));
-      return;
-    }catch(e){console.warn(url,e);}
+      UKM=map;return;
+    }catch(e){console.warn('UK reg',e);}
   }
-  UKM='err';setBanner('error','UK register unavailable. <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers" target="_blank" style="color:inherit">Check GOV.UK manually</a>.');
+  UKM='err';
 }
-function norm(s){return(s||'').toLowerCase().replace(/\b(limited|ltd|plc|llp|lp|inc|group|holdings?|uk|co\.?)\b/g,'').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();}
-function csvLine(l){const r=[];let c='',q=false;for(let i=0;i<l.length;i++){const ch=l[i];if(ch==='"'){q=!q;}else if(ch===','&&!q){r.push(c);c='';}else c+=ch;}r.push(c);return r;}
-function chkUK(co){if(!UKM||UKM==='err')return'unk';const k=norm(co);if(!k)return'unk';if(UKM.has(k))return UKM.get(k);for(const[kk,v]of UKM){if(kk.length>3&&(k.includes(kk)||kk.includes(k)))return v;}return null;}
-function setBanner(t,h){const el=document.getElementById('rb');el.className='reg '+t;el.innerHTML='<div class="rdot"></div><span>'+h+'</span>';}
-
-// ── Language / Visa filters ────────────────────────────────────────────
-const VY=['visa sponsorship','will sponsor','sponsorship provided','sponsorship available','we sponsor','skilled worker visa','work permit sponsor','provide sponsorship','offer sponsorship','happy to sponsor'];
-const VN=['no sponsorship','cannot sponsor','unable to sponsor','sponsorship not available','must have right to work','we do not offer sponsorship','no visa sponsorship'];
-const GR=['german required','german language required','fluent in german','native german','german speaker required','must speak german','german is a must','german is required','deutschkenntnisse erforderlich'];
-const GO=['german is a plus','german is nice','german is preferred','german not required','no german required','german is a bonus','german is optional'];
-function isDE(t){const l=(t||'').toLowerCase();if(GO.some(k=>l.includes(k)))return false;return GR.some(k=>l.includes(k));}
-function vscan(t){const l=(t||'').toLowerCase();if(VN.some(k=>l.includes(k)))return'no';if(VY.some(k=>l.includes(k)))return'yes';return'?';}
-
-// ── Visa HTML ─────────────────────────────────────────────────────────
-function visaHTML(job){
-  const txt=(job._title||'')+' '+(job._desc||'');const sc=vscan(txt);
-  const co=job._company||'';const cty=job._cty||'';const sal=job._sal||0;
-  let s='';
-  if(sc==='yes')s+=sg('✅','cy','<strong>Sponsorship mentioned in this listing</strong> — employer explicitly states visa sponsorship is available.');
-  else if(sc==='no')s+=sg('❌','cn','<strong>Sponsorship declined in listing</strong> — employer states they cannot sponsor for this role.');
-  else s+=sg('⬜','cuu','<strong>Not mentioned in listing</strong> — contact employer directly to confirm.');
-  if(cty==='gb'||cty==='uk')s+=ukSig(co);
-  else if(cty==='de')s+=sg('🇩🇪','cde','<strong>Germany: EU Blue Card / Skilled Worker visa</strong> — design and PM roles generally qualify.'+(sal>=43800?' Salary meets the EUR 43.8k Blue Card threshold.':' Confirm salary meets the EUR 43.8k threshold.')+' Ask employer directly.');
-  else if(cty==='nl')s+=sg('🇳🇱','cde','<strong>Netherlands: Highly Skilled Migrant visa</strong> — employer must be IND-recognised. Confirm sponsorship willingness.');
-  else if(cty==='in')s+=sg('🇮🇳','cin','<strong>Remote India: No sponsorship needed</strong> — you work from India. No work visa required.');
-  else s+=sg('🌍','cuu','<strong>Worldwide remote</strong> — visa requirements vary. Check with employer.');
-  return '<div class="vr"><div class="vl">Visa &amp; Sponsorship Status</div><div class="sigs">'+s+'</div></div>';
-}
-function ukSig(co){
-  if(!UKM)return'<div class="sig" data-ukc="'+e(co)+'"><div class="si">🇬🇧</div><div class="sb cuu"><strong>UK register: loading...</strong></div></div>';
-  if(UKM==='err')return sg('🇬🇧','cuu','<strong>UK register unavailable</strong> — <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers" target="_blank">check GOV.UK</a> for "'+e(co)+'"');
-  const f=chkUK(co);
-  if(f&&typeof f==='object')return sg('🇬🇧','cuy','<strong>UK licensed sponsor ✓</strong> — "'+e(f.name)+'" is on the Home Office register ('+e(f.rating)+'). Routes: '+e(f.routes.join(', ')||'Skilled Worker')+'. Confirm they will sponsor for this specific role.');
-  if(f===null)return sg('🇬🇧','cun','<strong>Not on UK sponsor register</strong> — "'+e(co)+'" not found. They likely cannot sponsor a Skilled Worker visa. <a href="https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers" target="_blank">Verify on GOV.UK</a>.');
-  return sg('🇬🇧','cuu','<strong>UK register: checking...</strong>');
-}
-function sg(ic,cl,h){return'<div class="sig"><div class="si">'+ic+'</div><div class="sb '+cl+'">'+h+'</div></div>';}
-function e(s){return s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):''}
-
-// ── Card renderer ─────────────────────────────────────────────────────
-function roleBadge(t){const l=(t||'').toLowerCase();if(l.includes('fashion')||l.includes('apparel'))return'<span class="b bfa">Fashion</span>';if(l.includes('product manager')||l.includes('product owner'))return'<span class="b bpm">PM</span>';if(l.includes('ux')||l.includes('user exp'))return'<span class="b bd">UX</span>';return'<span class="b bd">Design</span>';}
-function locBadge(loc){const l=(loc||'').toLowerCase();if(l.includes('berlin'))return'<span class="b bb">Berlin</span>';if(l.includes('india'))return'<span class="b bin">India</span>';if(l.includes('germany'))return'<span class="b bb">Germany</span>';if(l.includes('netherlands')||l.includes('amsterdam'))return'<span class="b beu">NL</span>';if(l.includes('uk')||l.includes('london')||l.includes('united kingdom'))return'<span class="b buk">UK</span>';if(l.includes('europe'))return'<span class="b beu">Europe</span>';return'<span class="b br">Remote</span>';}
-function srcBadge(src){if(src==='Adzuna')return'<span class="b bsrc-az">Adzuna</span>';if(src==='Remotive')return'<span class="b bsrc-rem">Remotive</span>';if(src==='Arbeitnow')return'<span class="b bsrc-arb">Arbeitnow</span>';if(src==='Himalayas')return'<span class="b bsrc-him">Himalayas</span>';if(src==='Highsnobiety')return'<span class="b bhs">Highsnobiety</span>';return'<span class="src">'+e(src)+'</span>';}
-function ts(ds){if(!ds)return null;const d=Math.floor((Date.now()-new Date(ds))/86400000);if(d===0)return'Today';if(d===1)return'Yesterday';if(d<7)return d+'d ago';if(d<30)return Math.floor(d/7)+'w ago';return Math.floor(d/30)+'mo ago';}
-function isNew(ds){return ds&&(Date.now()-new Date(ds))<7*86400000;}
-function clean(t){return(t||'').replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim().slice(0,285);}
-
-function card(j){
-  const ft=!!j._ft;
-  return'<div class="card'+(ft?' ft':'')+'"><div class="ct"><div><div class="ctitle">'+e(j._title)+'</div><div class="ccomp">'+e(j._company)+(j._loc?' · '+e(j._loc):'')+'</div></div>'
-    +'<div class="bdgs">'+(ft?'<span class="b bhs">Highsnobiety</span>':'')+(isNew(j._date)?'<span class="b bnw">New</span>':'')
-    +roleBadge(j._title)+locBadge(j._loc)+'<span class="b ben">English</span></div></div>'
-    +'<div class="meta">'+(j._sal?'<span class="mi">💰 '+e(String(j._sal))+'</span>':'')+(ts(j._date)?'<span class="mi">🗓 '+ts(j._date)+'</span>':'')+'</div>'
-    +'<div class="desc">'+e(clean(j._desc))+'</div>'
-    +visaHTML(j)
-    +'<div class="cf">'+srcBadge(j._src)+'<a class="ab" href="'+e(j._url||'#')+'" target="_blank" rel="noopener">View Job →</a></div></div>';
-}
-function legend(){return'<div class="lgd"><div class="lt">How visa status works</div><div class="lg"><div class="li"><span>✅</span><span>Employer explicitly stated sponsorship is available in this listing</span></div><div class="li"><span>❌</span><span>Employer declined sponsorship in this listing</span></div><div class="li"><span>⬜</span><span>Not mentioned — contact employer directly</span></div><div class="li"><span>🇬🇧</span><span>UK register: found = legally CAN sponsor. Not found = almost certainly cannot.</span></div><div class="li"><span>🇩🇪</span><span>Germany: Blue Card eligibility vs 2025 EUR 43.8k threshold</span></div><div class="li"><span>🇮🇳</span><span>Remote India = work from India, no visa needed</span></div></div></div>';}
-
-// ── Chips ─────────────────────────────────────────────────────────────
-document.querySelectorAll('.chips').forEach(g=>{g.querySelectorAll('.chip').forEach(c=>{c.addEventListener('click',()=>{if(g.id==='cs'){g.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');}else c.classList.toggle('on');});});});
-function on(id){return[...document.querySelectorAll('#'+id+' .chip.on')].map(c=>c.dataset.v);}
-function setSt(msg,loading){document.getElementById('st').innerHTML=loading?'<div class="spin"></div><span>'+msg+'</span>':'<span>'+msg+'</span>';}
-
-// ── API: Adzuna ────────────────────────────────────────────────────────
-async function fetchAdzuna(role,locs){
-  const results=[];
-  const configs=[];
-  if(locs.includes('berlin'))    configs.push({c:'de',wh:'Berlin'});
-  if(locs.includes('germany'))   configs.push({c:'de',wh:''});
-  if(locs.includes('europe'))   {configs.push({c:'gb',wh:'London'});configs.push({c:'gb',wh:''});configs.push({c:'nl',wh:''});}
-  if(locs.includes('india'))     configs.push({c:'in',wh:''});
-  if(locs.includes('worldwide')) configs.push({c:'gb',wh:''});
-  for(const cfg of configs){
-    try{
-      const p=new URLSearchParams({app_id:AID,app_key:AKY,results_per_page:8,what:role});
-      if(cfg.wh)p.set('where',cfg.wh);
-      const r=await fetch('https://api.adzuna.com/v1/api/jobs/'+cfg.c+'/search/1?'+p);
-      if(!r.ok)continue;
-      const d=await r.json();
-      const ctyMap={de:'de',gb:'gb',nl:'nl',in:'in'};
-      (d.results||[]).forEach(j=>results.push({
-        _title:j.title,_company:j.company?.display_name||'',
-        _loc:cfg.wh||(cfg.c==='de'?'Germany':cfg.c==='gb'?'UK/Europe':cfg.c==='nl'?'Netherlands':'India'),
-        _desc:j.description,_url:j.redirect_url,_date:j.created,
-        _src:'Adzuna',_sal:j.salary_min&&j.salary_max?'EUR '+Math.round(j.salary_min/1e3)+'k-'+Math.round(j.salary_max/1e3)+'k':null,
-        _cty:ctyMap[cfg.c]||cfg.c,
-      }));
-    }catch(err){console.warn('Adzuna',cfg,err);}
-  }
-  return results;
-}
-
-// ── API: Remotive ─────────────────────────────────────────────────────
-async function fetchRemotive(query){
-  try{
-    const r=await fetch('https://remotive.com/api/remote-jobs?search='+encodeURIComponent(query)+'&limit=20');
-    if(!r.ok)return[];
-    const d=await r.json();
-    return(d.jobs||[]).map(j=>({_title:j.title,_company:j.company_name,_loc:j.candidate_required_location||'Worldwide Remote',_desc:j.description,_url:j.url,_date:j.publication_date,_src:'Remotive',_sal:j.salary||null,_cty:guessCty(j.candidate_required_location||'')}));
-  }catch(e){console.warn('Remotive',e);return[];}
-}
-
-// ── API: Arbeitnow ────────────────────────────────────────────────────
-async function fetchArbeitnow(role){
-  try{
-    const r=await fetch('https://arbeitnow.com/api/job-board-api?page=1');
-    if(!r.ok)return[];
-    const d=await r.json();const q=role.toLowerCase();
-    return(d.data||[]).filter(j=>{
-      const txt=((j.title||'')+' '+(j.tags||[]).join(' ')).toLowerCase();
-      return q.split(' ').some(w=>w.length>3&&txt.includes(w));
-    }).map(j=>({_title:j.title,_company:j.company_name,_loc:j.location||'Remote Germany',_desc:j.description,_url:j.url,_date:j.created_at?new Date(j.created_at*1000).toISOString():null,_src:'Arbeitnow',_sal:null,_cty:'de'}));
-  }catch(e){console.warn('Arbeitnow',e);return[];}
-}
-
-// ── API: Himalayas ─────────────────────────────────────────────────────
-async function fetchHimalayas(query){
-  try{
-    const r=await fetch('https://himalayas.app/jobs/api?q='+encodeURIComponent(query)+'&limit=15');
-    if(!r.ok)return[];
-    const d=await r.json();
-    return(d.jobs||[]).map(j=>({_title:j.title,_company:j.company?.name||j.companyName||'',_loc:j.location||j.regions?.join(', ')||'Worldwide Remote',_desc:j.description||j.about||'',_url:j.applicationLink||j.url||'',_date:j.publishedAt||j.createdAt||null,_src:'Himalayas',_sal:j.salary||null,_cty:guessCty(j.location||'')}));
-  }catch(e){console.warn('Himalayas',e);return[];}
-}
-
-function guessCty(loc){const l=(loc||'').toLowerCase();if(l.includes('germany')||l.includes('berlin'))return'de';if(l.includes('uk')||l.includes('united kingdom')||l.includes('london'))return'gb';if(l.includes('netherlands'))return'nl';if(l.includes('india'))return'in';return'world';}
-
-function matchesLoc(job,locs){
-  const loc=(job._loc||'').toLowerCase();
-  if(locs.includes('worldwide'))return true;
-  if(locs.includes('berlin')&&loc.includes('berlin'))return true;
-  if(locs.includes('germany')&&(loc.includes('german')||loc.includes('remote')||loc.includes('worldwide')||loc.includes('europe')))return true;
-  if(locs.includes('europe')&&(loc.includes('europe')||loc.includes('uk')||loc.includes('london')||loc.includes('netherlands')||loc.includes('remote')||loc.includes('worldwide')))return true;
-  if(locs.includes('india')&&(loc.includes('india')||loc.includes('worldwide')||loc.includes('remote')))return true;
-  return false;
-}
-
-// ── Main search ───────────────────────────────────────────────────────
-async function go(){
-  const roles=on('cr'),locs=on('cl'),sen=on('cs')[0]||'',kw=document.getElementById('kw').value.trim();
-  if(!roles.length||!locs.length){setSt('Please select at least one role and location.');return;}
-  const btn=document.getElementById('sb');btn.disabled=true;
-  document.getElementById('root').innerHTML='';setSt('Fetching live jobs from 4 sources...',true);
-
-  const seen=new Set();let all=[],filtered=0,total=0;
-
-  for(const role of roles){
-    const q=(sen?sen+' '+role:role)+(kw?' '+kw:'');
-    setSt('Searching: '+q+'...',true);
-
-    // All 4 sources in parallel
-    const [az,rem,arb,him]=await Promise.all([
-      fetchAdzuna(role,locs),
-      fetchRemotive(q),
-      fetchArbeitnow(role),
-      fetchHimalayas(q),
-    ]);
-
-    for(const j of [...az,...rem,...arb,...him]){
-      const id=(j._title||'').slice(0,50)+(j._company||'').slice(0,30)+(j._url||'').slice(0,40);
-      if(seen.has(id))continue;seen.add(id);total++;
-      if(isDE((j._title||'')+' '+(j._desc||''))){filtered++;continue;}
-      if(!matchesLoc(j,locs)&&!az.includes(j))continue; // Adzuna already location-filtered
-      all.push(j);
-    }
-  }
-
-  all.sort((a,b)=>new Date(b._date||0)-new Date(a._date||0));
-  // Dedup by title+company
-  const seen2=new Set();
-  all=all.filter(j=>{const k=(j._title||'').toLowerCase().slice(0,40)+(j._company||'').toLowerCase().slice(0,20);if(seen2.has(k))return false;seen2.add(k);return true;});
-
-  const wD=roles.some(r=>['product designer','ux designer','ui designer','fashion designer'].includes(r));
-  const hs=wD?HS:[];
-  btn.disabled=false;
-  setSt((hs.length+all.length)+' English-only jobs · '+filtered+' filtered (German req.) · '+total+' scanned');
-
-  let h='<div class="stats"><div class="stat"><strong>'+hs.length+'</strong> Highsnobiety</div><div class="stat"><strong>'+all.length+'</strong> live jobs</div><div class="stat"><strong>'+filtered+'</strong> hidden (German)</div><div class="stat"><strong>'+total+'</strong> scanned</div></div>';
-  if(filtered>0)h+='<div style="background:#180f00;border:1px solid #3a2800;border-radius:8px;padding:.5rem .9rem;font-size:.73rem;color:#9a6a2a;margin-bottom:.8rem">⚠ '+filtered+' job'+(filtered>1?'s':'')+' hidden — required German as mandatory language.</div>';
-  h+=legend();
-  if(hs.length)h+='<div class="sec">⭐ Highsnobiety — Live Berlin <span class="pill">LIVE NOW</span></div><div class="results">'+hs.map(card).join('')+'</div>';
-  if(all.length)h+='<div class="sec">🌐 Live Listings — Adzuna · Remotive · Arbeitnow · Himalayas</div><div class="results">'+all.map(card).join('')+'</div>';
-  if(!hs.length&&!all.length)h+='<div class="empty"><div class="ei">😶</div><p>No matches found. Try broader filters.</p></div>';
-  document.getElementById('root').innerHTML=h;
-}
-
-// ── Highsnobiety live jobs ─────────────────────────────────────────────
+function normN(s){return(s||'').toLowerCase().replace(/\b(limited|ltd|plc|llp|lp|inc|group|holdings?|uk|co\.?)\b/g,'').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();}
+function csvL(l){const r=[];let c='',q=false;for(let i=0;i<l.length;i++){const ch=l[i];if(ch==='"'){q=!q;}else if(ch===','&&!q){r.push(c);c='';}else c+=ch;}r.push(c);return r;}
+function chkUK(co){if(!UKM||UKM==='err')return'unk';const k=normN(co);if(!k)return'unk';if(UKM.has(k))return UKM.get(k);for(const[kk,v]of UKM){if(kk.length>3&&(k.includes(kk)||kk.includes(k)))return v;}return null;}
+function esc(s){return s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):''}
+function timeSince(ds){if(!ds)return null;const d=Math.floor((Date.now()-new Date(ds))/86400000);if(d===0)return'Today';if(d===1)return'Yesterday';if(d<7)return d+'d ago';if(d<30)return Math.floor(d/7)+'w ago';return Math.floor(d/30)+'mo ago';}
 const HS=[
-  {_title:'Senior Designer (all genders)',_company:'Highsnobiety',_loc:'Berlin, Germany',_src:'Highsnobiety',_date:'2026-06-29',_desc:"Lead design projects at one of Berlin's most influential fashion and culture brands. Own layout, typography and visual language across digital, print, motion and spatial outputs. 5+ years, Adobe Suite and Figma required. English working language.",_url:'https://jobs.highsnobiety.com/jobs/7987690-senior-designer-all-genders',_ft:true,_cty:'de'},
-  {_title:'Midlevel Designer (all genders)',_company:'Highsnobiety',_loc:'Berlin, Germany',_src:'Highsnobiety',_date:'2026-04-01',_desc:'Join the Creative team in Berlin across fashion, culture and branded content. Adobe Suite and Figma required. International English-first team.',_url:'https://jobs.highsnobiety.com/jobs/6941631-midlevel-designer-all-genders',_ft:true,_cty:'de'},
-  {_title:'Creative Director (all genders)',_company:'Highsnobiety',_loc:'Berlin, Germany',_src:'Highsnobiety',_date:'2026-03-01',_desc:"Shape the creative vision of one of the world's leading fashion and culture brands. Lead direction across campaigns, brand partnerships and editorial.",_url:'https://jobs.highsnobiety.com/jobs/7046327-creative-director-all-genders',_ft:true,_cty:'de'},
-  {_title:'Senior Creative (all genders)',_company:'Highsnobiety',_loc:'Berlin / London',_src:'Highsnobiety',_date:'2026-03-10',_desc:'Work across Berlin and London on campaigns and identity at the intersection of fashion, culture and commerce.',_url:'https://jobs.highsnobiety.com/jobs/7028118-senior-creative-all-genders',_ft:true,_cty:'de'},
+  {_id:'hs1',_title:'Senior Designer (all genders)',_company:'Highsnobiety',_loc:'Berlin, Germany',_src:'Highsnobiety',_date:'2026-06-29',_desc:"Lead design projects at one of Berlin's most influential fashion and culture brands. Adobe Suite and Figma required. English working language.",_url:'https://jobs.highsnobiety.com/jobs/7987690-senior-designer-all-genders',_cty:'de'},
+  {_id:'hs2',_title:'Midlevel Designer (all genders)',_company:'Highsnobiety',_loc:'Berlin, Germany',_src:'Highsnobiety',_date:'2026-04-01',_desc:'Join the Creative team in Berlin across fashion, culture and branded content. Adobe Suite and Figma required. International English-first team.',_url:'https://jobs.highsnobiety.com/jobs/6941631-midlevel-designer-all-genders',_cty:'de'},
+  {_id:'hs3',_title:'Creative Director (all genders)',_company:'Highsnobiety',_loc:'Berlin, Germany',_src:'Highsnobiety',_date:'2026-03-01',_desc:"Shape the creative vision of one of the world's leading fashion and culture brands. Lead direction across campaigns, brand partnerships and editorial.",_url:'https://jobs.highsnobiety.com/jobs/7046327-creative-director-all-genders',_cty:'de'},
+  {_id:'hs4',_title:'Senior Creative (all genders)',_company:'Highsnobiety',_loc:'Berlin / London',_src:'Highsnobiety',_date:'2026-03-10',_desc:'Work across Berlin and London on campaigns and identity at the intersection of fashion, culture and commerce.',_url:'https://jobs.highsnobiety.com/jobs/7028118-senior-creative-all-genders',_cty:'de'},
 ];
-
-// ── Init ──────────────────────────────────────────────────────────────
 loadUK();
-(function(){
-  let h=legend();
-  h+='<div class="sec">⭐ Highsnobiety — Live Berlin <span class="pill">LIVE NOW</span></div><div class="results">'+HS.map(card).join('')+'</div>';
-  h+='<div class="empty" style="padding:1.2rem 0"><div class="ei" style="font-size:1.6rem">👆</div><p>Select filters and hit Search to pull from all 4 sources: Adzuna, Remotive, Arbeitnow and Himalayas simultaneously.</p></div>';
-  document.getElementById('root').innerHTML=h;
-  setSt('Ready · 4 job sources active · Adzuna + Remotive + Arbeitnow + Himalayas · UK register loading...');
-})();
+navTo('search');
 </script>
 </body>
-</html>
+  </html>
